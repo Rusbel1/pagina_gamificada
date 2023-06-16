@@ -9,11 +9,11 @@ import { useSearchParams } from 'react-router-dom';
 import { CodeEditor } from '../components/CodeEditor';
 
 export const LessonPage = () => {
-  const [page, setPage] = useState(0);
-
   const [searchParams, setSearchParams] = useSearchParams();
 
-  console.log(searchParams);
+  const [page, setPage] = useState(0);
+
+  console.log(searchParams.get('page'));
 
   const handleOnClickNext = () => {
     setPage((prevState) => prevState + 1);
@@ -24,7 +24,7 @@ export const LessonPage = () => {
   };
 
   useEffect(() => {
-    setSearchParams(page);
+    setSearchParams({ page: page });
   }, [page]);
 
   return (
@@ -64,7 +64,12 @@ export const LessonPage = () => {
               Atras
             </Button>
           )}
-          <Button size='md' color='green' onClick={() => handleOnClickNext()}>
+          <Button
+            size='md'
+            color='green'
+            onClick={() => handleOnClickNext()}
+            disabled={page >= sampleLesson.length - 1}
+          >
             Siguiente
           </Button>
         </Flex>
