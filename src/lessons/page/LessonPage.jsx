@@ -1,63 +1,73 @@
 import React, { useEffect, useState } from 'react';
 
-import { Container, Flex, Space, Text, Title } from '@mantine/core';
+import { Button, Container, Flex, Text, Title } from '@mantine/core';
 
 import { Prism } from '@mantine/prism';
 
-import AceEditor from 'react-ace';
-
-import 'ace-builds/src-noconflict/mode-javascript';
-import 'ace-builds/src-noconflict/theme-xcode';
-import 'ace-builds/src-noconflict/ext-language_tools';
-
-import { parseScript } from 'esprima';
-
-function checkSyntax(code) {
-  try {
-    parseScript(code);
-    console.log('No syntax errors found.');
-  } catch (error) {
-    console.error('Syntax error:', error);
-  }
-}
+import { sampleLesson } from '../../sampleLesson';
+import { useSearchParams } from 'react-router-dom';
+import { CodeEditor } from '../components/CodeEditor';
 
 export const LessonPage = () => {
-  const [code, setCode] = useState('');
+  const [page, setPage] = useState(0);
 
-  function onChange(newValue) {
-    setCode(newValue);
-  }
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  console.log(searchParams);
+
+  const handleOnClickNext = () => {
+    setPage((prevState) => prevState + 1);
+  };
+
+  const handleOnClickBack = () => {
+    setPage((prevState) => prevState - 1);
+  };
 
   useEffect(() => {
-    checkSyntax(code);
-  }, [code]);
+    setSearchParams(page);
+  }, [page]);
 
   return (
-    <Container size='md' px='xs' h='100vh'>
+    <Container size='md' px='xs' my={128}>
       <Flex w='100%' h='100%' justify='center' direction='column'>
-        <Title>Condicional IF</Title>
-        <Text size='lg'>
-          El condicional if en inglés nos sirve para poder hablar de hipótesis
-          en pasado o de condiciones con sus consecuencias futuras. El sistema
-          de los condicionales en inglés es un poco complejo porque hay varios
-          grupos y tipos. ¡Este post sobre el uso del condicional con ejemplos y
-          ejercicios te aclarará este tema!
-        </Text>
-        <Space h='md' />
+        {sampleLesson[page].content.map((lesson) => {
+          switch (lesson.type) {
+            case 'title':
+              return <Title my={12}>{lesson.content}</Title>;
+            case 'paragraph':
+              return (
+                <Text my={12} size='lg'>
+                  {lesson.content}
+                </Text>
+              );
+            case 'snippet':
+              return (
+                <Prism my={12} language='javascript' withLineNumbers>
+                  {lesson.content}
+                </Prism>
+              );
+            case 'code_challenge':
+              return <CodeEditor content={lesson.content} />;
 
-        <Prism language='javascript' withLineNumbers>
-          {code}
-        </Prism>
-
-        <AceEditor
-          width='100%'
-          mode='javascript'
-          theme='xcode'
-          onChange={onChange}
-          name='UNIQUE_ID_OF_DIV'
-          editorProps={{ $blockScrolling: true }}
-          fontSize={24}
-        />
+            default:
+              break;
+          }
+        })}
+        <Flex justify='space-between' mt={32}>
+          {page > 0 && (
+            <Button
+              size='md'
+              variant='outline'
+              color='red'
+              onClick={() => handleOnClickBack()}
+            >
+              Atras
+            </Button>
+          )}
+          <Button size='md' color='green' onClick={() => handleOnClickNext()}>
+            Siguiente
+          </Button>
+        </Flex>
       </Flex>
     </Container>
   );

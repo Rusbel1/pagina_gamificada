@@ -1,0 +1,71 @@
+import React, { useEffect, useState } from 'react';
+
+import AceEditor from 'react-ace';
+
+import 'ace-builds/src-noconflict/mode-javascript';
+import 'ace-builds/src-noconflict/theme-xcode';
+import 'ace-builds/src-noconflict/ext-language_tools';
+
+import { parseScript } from 'esprima';
+import { Alert, Button, Flex } from '@mantine/core';
+import { IconAlertCircle } from '@tabler/icons-react';
+
+export const CodeEditor = ({ content }) => {
+  const [code, setCode] = useState(content);
+  const [error, setError] = useState();
+
+  function onChange(newValue) {
+    setCode(newValue);
+  }
+
+  function checkSyntax(code) {
+    try {
+      parseScript(code);
+      console.log('No syntax errors found.');
+      setError();
+    } catch (error) {
+      setError(error);
+      console.error('Syntax error:', error);
+    }
+  }
+
+  // useEffect(() => {
+  //   checkSyntax(code);
+  // }, [code]);
+
+  const onVerifyCode = () => {
+    checkSyntax(code);
+  };
+
+  return (
+    <>
+      <AceEditor
+        value={code}
+        width='100%'
+        mode='javascript'
+        theme='xcode'
+        onChange={onChange}
+        name='UNIQUE_ID_OF_DIV'
+        editorProps={{ $blockScrolling: true }}
+        fontSize={24}
+      />
+
+      <Flex justify='space-between' mt={12}>
+        <Button size='sm' color='blue' onClick={() => onVerifyCode()}>
+          Comprobar codigo
+        </Button>
+      </Flex>
+
+      {error && (
+        <Alert
+          mt={12}
+          icon={<IconAlertCircle size='1rem' />}
+          title={`Hay un error en la linea ${error.lineNumber}`}
+          color='red'
+        >
+          {error.description}
+        </Alert>
+      )}
+    </>
+  );
+};
