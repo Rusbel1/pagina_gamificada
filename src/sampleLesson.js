@@ -16,7 +16,9 @@ export const sampleLesson = [
       {
         order: 3,
         type: 'snippet',
-        content: 'if(condición){}',
+        content: 'if(condición){}'
+      },
+      {
         order: 4,
         type: 'paragraph',
         content:
@@ -35,39 +37,69 @@ export const sampleLesson = [
       },
       {
         order: 7,
-        type: 'code_challenge',
+        type: 'snippet',
         content: 'if (condición1){if (condición2)}',
       },
-    ],
-  },
-  {
-    type: 'Teoric',
-    content: [
       {
-        order: 1,
+        order: 8,
         type: 'title',
         content: 'Condicional if-else',
       },
       {
-        order: 2,
+        order: 9,
         type: 'paragraph',
         content:
           'La sentencia if sola nos dice que si una condición es verdadera ejecutará un bloque de declaraciones o sentencias JavaScript y si la condición es falsa no lo hará. Pero qué pasa si queremos hacer algo más si la condición es falsa. Aquí viene la otra declaración. Podemos usar la instrucción else con la instrucción if para ejecutar un bloque de código cuando la condición es falsa.',
       },
       {
-        order: 3,
-        type: 'code_challenge',
-        content: 'if (condición){}else{}',
+        order: 10,
+        type: 'snippet',
+        content: 'if (condición){} else {}',
       },
     ],
   },
   {
+  type: 'practical',
+  content: [
+    {
+      order: 1,
+      type: 'title',
+      content: 'Desafio de condicionales',
+    },
+    {
+      order: 2,
+      type: 'paragraph',
+      content: 'En este desafio deberas crear un condicional cualquiera, sin error de sintaxis y que se ejecute correctamente. Puedes utilizar cualquier tipo de condicional que hayas aprendido hasta ahora.',
+    },
+    {
+      order: 3,
+      type: 'code_challenge',
+      content: '',
+    }
+  ],
+  },
+];
+[
+  {
+    type: 'Teoric',
+    content: 'Estrutura de iteracion FOR', 
+  },
+  {
+    order: 1,
+    type: 'paragraph',
+    content:''
+  },
+
+];
+[
+  {
     type: 'Teoric',
     content: 'Variables y tipos de datos en JavaScript',
   },
-  { order: 1,
+  {
+    order: 1,
     type: 'paragraph',
-    content:'Una variable es un nombre dado a una ubicación de memoria. Es la unidad básica de almacenamiento en un programa. Las variables también las podemos ver como un deposito donde se almacena un valor y esta constituida por un nombre, un tipo ya sea numérico, cadena de caracteres, Booleano, entre otros. JavaScript puede almacenar los siguientes valores: Números: 5, 6.5, 7 etc. Valores Reales: 1.24, 2.90, 5.01, etc. Cadena de caracteres: "Hola Estrada Web Group" etc. Booleano o valores lógicos: verdadero o falso (true, false). Además de los tipos de datos de datos anteriores, JavaScript también admite dos tipos de datos más, nulos y no definidos y un objeto de tipo de datos compuesto. Aprenderemos sobre estos tipos de datos a detalle en otros artículos.'
+    content: 'Una variable es un nombre dado a una ubicación de memoria. Es la unidad básica de almacenamiento en un programa. Las variables también las podemos ver como un deposito donde se almacena un valor y esta constituida por un nombre, un tipo ya sea numérico, cadena de caracteres, Booleano, entre otros. JavaScript puede almacenar los siguientes valores: Números: 5, 6.5, 7 etc. Valores Reales: 1.24, 2.90, 5.01, etc. Cadena de caracteres: "Hola Estrada Web Group" etc. Booleano o valores lógicos: verdadero o falso (true, false). Además de los tipos de datos de datos anteriores, JavaScript también admite dos tipos de datos más, nulos y no definidos y un objeto de tipo de datos compuesto. Aprenderemos sobre estos tipos de datos a detalle en otros artículos.'
   },
   {
     order: 2,
@@ -77,6 +109,26 @@ export const sampleLesson = [
   {
     order: 3,
     type: 'paragraph',
-    content:'El valor almacenado en una variable se puede cambiar durante la ejecución del programa. Una variable es solo un nombre dado a una ubicación de memoria, todas las operaciones realizadas en la variable afectan a esa ubicación de memoria. En JavaScript, todas las variables se deben declarar antes de poder utilizarlas.'
+    content: 'El valor almacenado en una variable se puede cambiar durante la ejecución del programa. Una variable es solo un nombre dado a una ubicación de memoria, todas las operaciones realizadas en la variable afectan a esa ubicación de memoria. En JavaScript, todas las variables se deben declarar antes de poder utilizarlas.'
+  },
+  {
+      type: 'practical',
+      content: [
+        {
+          order: 1,
+          type: 'title',
+          content: 'Desafio de crear una variable en JavaScript',
+        },
+        {
+          order: 2,
+          type: 'paragraph',
+          content: 'En este desafio deberas crear una variable cualquiera, sin error de sintaxis y que se ejecute correctamente. Puedes utilizar cualquier tipo de variable que hayas aprendido hasta ahora.',
+        },
+        {
+          order: 3,
+          type: 'code_challenge',
+          content: '',
+        }
+      ],
   }
 ];

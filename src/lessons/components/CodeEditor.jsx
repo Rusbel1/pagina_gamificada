@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
-
 import AceEditor from 'react-ace';
-
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-xcode';
 import 'ace-builds/src-noconflict/ext-language_tools';
-
 import { parseScript } from 'esprima';
 import { Alert, Button, Flex } from '@mantine/core';
-import { IconAlertCircle } from '@tabler/icons-react';
+import { IconAccessPoint, IconAlertCircle } from '@tabler/icons-react';
+import { IconAccessible } from '@tabler/icons-react';
 
 export const CodeEditor = ({ content }) => {
   const [code, setCode] = useState(content);
@@ -28,10 +26,6 @@ export const CodeEditor = ({ content }) => {
       console.error('Syntax error:', error);
     }
   }
-
-  // useEffect(() => {
-  //   checkSyntax(code);
-  // }, [code]);
 
   const onVerifyCode = () => {
     checkSyntax(code);
@@ -56,16 +50,24 @@ export const CodeEditor = ({ content }) => {
         </Button>
       </Flex>
 
-      {error && (
+      {error ? (
         <Alert
           mt={12}
           icon={<IconAlertCircle size='1rem' />}
           title={`Hay un error en la linea ${error.lineNumber}`}
           color='red'
         >
-          {error.description}
+          {error.description} :
         </Alert>
-      )}
+      ) : <Alert
+        mt={12}
+        icon={<IconAlertCircle size='1rem' />}
+        title={`No hay errores en el codigo`}
+        color='green'
+      >
+      </Alert>
+      }
+
     </>
   );
 };

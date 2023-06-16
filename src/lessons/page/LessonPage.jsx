@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
 import { Button, Container, Flex, Text, Title } from '@mantine/core';
-
 import { Prism } from '@mantine/prism';
-
 import { sampleLesson } from '../../sampleLesson';
 import { useSearchParams } from 'react-router-dom';
 import { CodeEditor } from '../components/CodeEditor';
@@ -48,7 +45,6 @@ export const LessonPage = () => {
               );
             case 'code_challenge':
               return <CodeEditor content={lesson.content} />;
-
             default:
               break;
           }

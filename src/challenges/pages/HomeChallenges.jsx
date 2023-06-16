@@ -26,7 +26,25 @@ export const HomeChallenges = () => {
         mt={8}
         radius='xs'
       >
-        <Accordion.Item value='customization'>
+        <Accordion.Item value='variables'>
+          <Accordion.Control>Variables</Accordion.Control>
+          <Accordion.Panel>
+            <Flex p={4}>
+              <ThemeIcon color='teal' size={24} radius='xl' mr={12}>
+                <IconCircleCheck size='1rem' />
+                </ThemeIcon>
+                <Flex justify='space-between' align='center' w='100%'>
+                <Anchor component={Link} to={`/lesson/variables`}>
+                  Declaracion de Variables
+                </Anchor>
+                <Text color='green'>20/20</Text>
+                </Flex>
+              </Flex>
+          
+        </Accordion.Panel>
+        </Accordion.Item>
+
+        <Accordion.Item value='control_flujo'>
           <Accordion.Control>Control de flujo</Accordion.Control>
           <Accordion.Panel>
             <Flex p={4}>
@@ -35,7 +53,7 @@ export const HomeChallenges = () => {
               </ThemeIcon>
               <Flex justify='space-between' align='center' w='100%'>
                 <Anchor component={Link} to={`/lesson/if`}>
-                  Estructura condicial IF
+                  Estructuras Condicionales
                 </Anchor>
                 <Text color='green'>20/20</Text>
               </Flex>
