@@ -2,10 +2,8 @@ import React from 'react';
 
 import {
   Accordion,
-  Box,
   Container,
   Flex,
-  List,
   Text,
   ThemeIcon,
   Title,
