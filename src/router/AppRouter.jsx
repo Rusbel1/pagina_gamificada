@@ -8,6 +8,7 @@ export const AppRouter = () => {
     <Routes>
       <Route path='/*' element={<ChallengesRoutes />} />
       <Route path='/lesson/*' element={<LessonsRouter />} />
+      
     </Routes>
   );
 };

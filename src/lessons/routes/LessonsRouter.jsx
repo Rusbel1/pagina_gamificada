@@ -4,7 +4,8 @@ import { LessonPage } from '../page';
 export const LessonsRouter = () => {
   return (
     <Routes>
-      <Route path='/*' element={<LessonPage />} />
+      <Route path='/:id' element={<LessonPage/>} />
+      
     </Routes>
   );
 };

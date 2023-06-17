@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Flex, Text, Title } from '@mantine/core';
 import { Prism } from '@mantine/prism';
-import { sampleLesson } from '../../sampleLesson';
-import { useSearchParams } from 'react-router-dom';
+import { sampleLessons } from '../../sampleLesson';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { CodeEditor } from '../components/CodeEditor';
 
 export const LessonPage = () => {
@@ -24,10 +24,12 @@ export const LessonPage = () => {
     setSearchParams({ page: page });
   }, [page]);
 
+  let { id } = useParams();
+
   return (
     <Container size='md' px='xs' my={128}>
       <Flex w='100%' h='100%' justify='center' direction='column'>
-        {sampleLesson[page].content.map((lesson) => {
+        {sampleLessons[id].lessons[page].content.map((lesson) => {
           switch (lesson.type) {
             case 'title':
               return <Title my={12}>{lesson.content}</Title>;
@@ -64,7 +66,7 @@ export const LessonPage = () => {
             size='md'
             color='green'
             onClick={() => handleOnClickNext()}
-            disabled={page >= sampleLesson.length - 1}
+            disabled={page >= sampleLessons[id].lessons.length - 1}
           >
             Siguiente
           </Button>
