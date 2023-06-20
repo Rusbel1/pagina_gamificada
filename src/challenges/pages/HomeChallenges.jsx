@@ -18,7 +18,7 @@ export const HomeChallenges = () => {
     <Container size='xs' px='xs' mt={32}>
       <Title order={1}>Desafios: Programación básica</Title>
 
-      <Text mt={16}>9 lecciones | 2h de duración estimada</Text>
+      <Text mt={16}>10 lecciones | 2h de duración estimada</Text>
 
       <Accordion
         variant='contained'
@@ -56,8 +56,8 @@ export const HomeChallenges = () => {
         </Accordion.Panel>
         </Accordion.Item>
 
-        <Accordion.Item value='control_flujo'>
-          <Accordion.Control>Control de flujo</Accordion.Control>
+        <Accordion.Item value='Estructuras Condicionales'>
+          <Accordion.Control>Estructuras Condicionales</Accordion.Control>
           <Accordion.Panel>
             <Flex p={4}>
               <ThemeIcon color='teal' size={24} radius='xl' mr={12}>
@@ -65,11 +65,39 @@ export const HomeChallenges = () => {
               </ThemeIcon>
               <Flex justify='space-between' align='center' w='100%'>
                 <Anchor component={Link} to={`/lesson/2`}>
-                  Estructuras Condicionales
+                  Condicional IF
                 </Anchor>
                 <Text color='green'>20/20</Text>
               </Flex>
             </Flex>
+            <Flex p={4}>
+              <ThemeIcon color='gray' size={24} radius='xl' mr={12}>
+                <IconCircleDashed size='1rem' />
+              </ThemeIcon>
+              <Flex justify='space-between' align='center' w='100%'>
+                <Anchor component={Link} to={`/lesson/8`}>
+                  Condicional If anidado
+                </Anchor>
+                <Text color='green'>0/20</Text>
+              </Flex>
+            </Flex>
+            <Flex p={4}>
+              <ThemeIcon color='blue' size={24} radius='xl' mr={12}>
+                <IconCircleDashed size='1rem' />
+              </ThemeIcon>
+              <Flex justify='space-between' align='center' w='100%'>
+                <Anchor component={Link} to={`/lesson/9`}>
+                  Condicional IF ELSE
+                </Anchor>
+                <Text color='blue'>10/20</Text>
+              </Flex>
+            </Flex>
+            
+          </Accordion.Panel>
+        </Accordion.Item>
+        <Accordion.Item value='bucles'>
+          <Accordion.Control>Bucles</Accordion.Control>
+          <Accordion.Panel>
 
             <Flex p={4}>
               <ThemeIcon color='blue' size={24} radius='xl' mr={12}>
@@ -97,7 +125,7 @@ export const HomeChallenges = () => {
           </Accordion.Panel>
         </Accordion.Item>
 
-        <Accordion.Item value='flexibility'>
+        <Accordion.Item value='funciones'>
           <Accordion.Control>Funciones</Accordion.Control>
           <Accordion.Panel>
             <Flex p={4}>

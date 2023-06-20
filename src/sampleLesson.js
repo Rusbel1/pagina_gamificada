@@ -52,12 +52,12 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'En este desafio deberas crear una variable cualquiera, sin error de sintaxis y que se ejecute correctamente. Puedes utilizar cualquier tipo de variable que hayas aprendido hasta ahora.',
+            content: 'En este desafio deberas corregir un error en el codigo para que la variable se declare correctamente.',
           },
           {
             order: 3,
             type: 'code_challenge',
-            content: '',
+            content: 'avr carro;  ',
           }
         ],
       },
@@ -80,7 +80,7 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content:' La declaración de una variable en JavaScript se realiza mediante la palabra reservada var. La sintaxis para declarar una variable es: var nombreVariable; donde nombreVariable es el nombre que le daremos a la variable.'
+            content: ' La declaración de una variable en JavaScript se realiza mediante la palabra reservada var. La sintaxis para declarar una variable es: var nombreVariable; donde nombreVariable es el nombre que le daremos a la variable.'
           },
           {
             order: 3,
@@ -100,8 +100,28 @@ export const sampleLessons = [
           {
             order: 6,
             type: 'snippet',
-            content:'nombre = "Estrada Web Group"; edad = 25; sueldo = 1000.00; estadoCivil = "Soltero"; fechaNacimiento = "01/01/1990"; direccion = "Calle 1, Colonia 1, Ciudad 1, Pais 1"; telefono = "12345678"; email = jgkd@gmail.com'
+            content: 'nombre = "Estrada Web Group"; edad = 25; sueldo = 1000.00; estadoCivil = "Soltero"; fechaNacimiento = "01/01/1990"; direccion = "Calle 1, Colonia 1, Ciudad 1, Pais 1"; telefono = "12345678"; email = jgkd@gmail.com'
           },
+        ],
+      },
+      {
+        type: 'practical',
+        content: [
+          {
+            order: 1,
+            type: 'title',
+            content: 'Desafio de declarar una variable con un valor en JavaScript',
+          },
+          {
+            order: 2,
+            type: 'paragraph',
+            content: 'En este desafio deberas corregir el error en la declaracion de una variable con un valor en JavaScript.',
+          },
+          {
+            order: 3,
+            type: 'code_challenge',
+            content: 'estadocivir ? "soltero"',
+          }
         ],
       },
     ],
@@ -137,38 +157,6 @@ export const sampleLessons = [
             content:
               'El condicional IF se puede utilizar sin el else. Si se solicita un programa en el que se diga ÚNICAMENTE si una persona tiene sobrepeso de acuerdo a su índice de masa corporal, se utilizará el IF sin colocar la parte del else.',
           },
-          {
-            order: 5,
-            type: 'title',
-            content: 'Condicional IF anidado',
-          },
-          {
-            order: 6,
-            type: 'paragraph',
-            content:
-              'if anidado: Un if anidado es una sentencia if que está dentro de otro if o else. Anidado: Si las sentencias significan una sentencia if dentro de una sentencia if. Sí, JavaScript nos permite anidar las sentencias if dentro de las sentencias if, es decir, podemos colocar una sentencia if dentro de otra sentencia if.',
-          },
-          {
-            order: 7,
-            type: 'snippet',
-            content: 'if (condición1){if (condición2)}',
-          },
-          {
-            order: 8,
-            type: 'title',
-            content: 'Condicional if-else',
-          },
-          {
-            order: 9,
-            type: 'paragraph',
-            content:
-              'La sentencia if sola nos dice que si una condición es verdadera ejecutará un bloque de declaraciones o sentencias JavaScript y si la condición es falsa no lo hará. Pero qué pasa si queremos hacer algo más si la condición es falsa. Aquí viene la otra declaración. Podemos usar la instrucción else con la instrucción if para ejecutar un bloque de código cuando la condición es falsa.',
-          },
-          {
-            order: 10,
-            type: 'snippet',
-            content: 'if (condición){} else {}',
-          },
         ],
       },
       {
@@ -187,37 +175,11 @@ export const sampleLessons = [
           {
             order: 3,
             type: 'code_challenge',
-            content: '',
+            content: 'if(i=?){',
           },
-          {
-            type: 'teoric',
-            content: [
-              {
-                order: 1,
-                type: 'title',
-                content: 'Estructura de iteración FOR',
-              },
-              {
-                order: 2,
-                type: 'paragraph',
-                content: 'Una instrucción iterativa o repetitiva, también conocida como bucle, tiene la misión de ejecutar las mismas instrucciones de código una y otra vez mientras que se cumpla una determinada condición.'
-              },
-              {
-                order: 3,
-                type: 'paragraph',
-                content: 'La estructura de control for es una estructura de control que permite repetir un bloque de instrucciones un número determinado de veces. La estructura de control for es una estructura de control que permite repetir un bloque de instrucciones un número determinado de veces.'
-              },
-              {
-                order: 4,
-                type: 'snippet',
-                content: 'for (inicialización; condición; actualización) { // Código a ejecutar }',
-              },
-            ]
-          }
-
         ],
       },
-    ]
+    ],
   },
   {
     id: 3,
@@ -225,56 +187,7 @@ export const sampleLessons = [
     slug: 'bucle for',
     description: 'En esta pagina aprenderas a utilizar bucle FOR en JavaScript',
     lessons: [
-      {
-        type: 'teoric',
-        content: [
-          {
-            order: 1,
-            type: 'title',
-            content: 'Estructura de iteración FOR',
-          },
-          {
-            order: 2,
-            type: 'paragraph',
-            content: 'Una instrucción iterativa o repetitiva, también conocida como bucle, tiene la misión de ejecutar las mismas instrucciones de código una y otra vez mientras que se cumpla una determinada condición.'
-          },
-          {
-            order: 3,
-            type: 'paragraph',
-            content: 'La estructura de control for es una estructura de control que permite repetir un bloque de instrucciones un número determinado de veces. La estructura de control for es una estructura de control que permite repetir un bloque de instrucciones un número determinado de veces.'
-          },
-          {
-            order: 4,
-            type: 'snippet',
-            content: 'for (inicialización; condición; actualización) { // Código a ejecutar }',
-          },
-          {
-            order: 5,
-            type: 'paragraph',
-            content: 'La inicialización se ejecuta una sola vez antes de comenzar el bucle. La condición se evalúa antes de cada iteración del bucle. Si la condición se evalúa como verdadera, el bucle se ejecuta. Si la condición se evalúa como falsa, el bucle termina. La actualización se ejecuta después de cada iteración del bucle, y generalmente se utiliza para aumentar o disminuir el contador.'
-          },
-        ]
-      },
-      {
-        type: 'practical',
-        content: [
-          {
-            order: 1,
-            type: 'title',
-            content: 'Desafio de iteración FOR',
-          },
-          {
-            order: 2,
-            type: 'paragraph',
-            content: 'En este desafio deberas crear un bucle for cualquiera, sin error de sintaxis y que se ejecute correctamente. Puedes utilizar cualquier tipo de condicional que hayas aprendido hasta ahora.',
-          },
-          {
-            order: 3,
-            type: 'code_challenge',
-            content: '',
-          },
-        ]
-      },
+      
     ]
   },
   {
@@ -324,7 +237,7 @@ export const sampleLessons = [
           {
             order: 3,
             type: 'code_challenge',
-            content: '',
+            content: 'i=2; while (){ console.log(i); }',
           },
         ]
       },
@@ -402,12 +315,12 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'En este desafio deberas crear una funcion cualquiera, sin error de sintaxis y que se ejecute correctamente. Puedes utilizar cualquier tipo de condicional que hayas aprendido hasta ahora.',
+            content: 'En este desafio deberas modificar una funcion, para que este sin error de sintaxis y que se ejecute correctamente.',
           },
           {
             order: 3,
             type: 'code_challenge',
-            content: '',
+            content: ' funcion1(){ console.log("Hola Mundo"); }',
           },
         ]
       },
@@ -470,12 +383,12 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'En este desafio deberas crear un objeto cualquiera, sin error de sintaxis y que se ejecute correctamente. Puedes utilizar cualquier tipo de condicional que hayas aprendido hasta ahora.',
+            content: 'En este desafio deberas modificar un objeto, para que este sin error de sintaxis y que se ejecute correctamente.',
           },
           {
             order: 3,
             type: 'code_challenge',
-            content: '',
+            content: ' var persona ? {nombre: "Juan", apellido: "Perez", edad: 25, colorDeOjos: "azul"};',
           },
         ]
       },
@@ -549,4 +462,153 @@ export const sampleLessons = [
       },
     ]
   },
+  {
+    id: 8,
+    title: 'Condicional if anidado',
+    slug: 'condicional-if-anidado',
+    description: 'En esta pagina aprenderas a utilizar condicionales if anidados en JavaScript',
+    lessons: [
+      {
+        type: 'teoric',
+        content: [
+          {
+            order: 1,
+            type: 'title',
+            content: 'Condicional IF anidado',
+          },
+          {
+            order: 2,
+            type: 'paragraph',
+            content:
+              'if anidado: Un if anidado es una sentencia if que está dentro de otro if o else. Anidado: Si las sentencias significan una sentencia if dentro de una sentencia if. Sí, JavaScript nos permite anidar las sentencias if dentro de las sentencias if, es decir, podemos colocar una sentencia if dentro de otra sentencia if.',
+          },
+          {
+            order: 3,
+            type: 'snippet',
+            content: 'if (condición1){if (condición2)}',
+          },
+        ],
+      },
+      {
+        type: 'practical',
+        content: [
+          {
+            order: 1,
+            type: 'title',
+            content: 'Desafio de condicional if anidado',
+          },
+          {
+            order: 2,
+            type: 'paragraph',
+            content: 'En este desafio deberas modificar un condicional if anidado cualquiera, para que este sin error de sintaxis y que se ejecute correctamente.',
+          },
+          {
+            order: 3,
+            type: 'code_challenge',
+            content: ' if (sexo="mujer"){if sexo"hombre"}',
+          },
+        ],
+      }
+    ],
+  },
+  {
+    id: 9,
+    title: 'Condicional if else',
+    slug: 'condicional-if-else',
+    description: 'En este apartado aprenderas a utilizar condicionales if else en JavaScript',
+    lessons: [
+      {
+        type: 'teoric',
+        content: [
+          {
+            order: 1,
+            type: 'title',
+            content: 'Condicional if-else',
+          },
+          {
+            order: 2,
+            type: 'paragraph',
+            content:
+              'La sentencia if sola nos dice que si una condición es verdadera ejecutará un bloque de declaraciones o sentencias JavaScript y si la condición es falsa no lo hará. Pero qué pasa si queremos hacer algo más si la condición es falsa. Aquí viene la otra declaración. Podemos usar la instrucción else con la instrucción if para ejecutar un bloque de código cuando la condición es falsa.',
+          },
+          {
+            order: 3,
+            type: 'snippet',
+            content: 'if (condición){} else {}',
+          },
+        ]
+      },
+      {
+        type: 'practical',
+        content: [
+          {
+            order: 1,
+            type: 'title',
+            content: 'Desafio de condicional if-else',
+          },
+          {
+            order: 2,
+            type: 'paragraph',
+            content: 'En este desafio deberas modificar un condicional if-else cualquiera, para que este sin error de sintaxis y que se ejecute correctamente.',
+          },
+          {
+            order: 3,
+            type: 'code_challenge',
+            content: ' if (x > y) {    alert("Hello world!");  } seel {    alert("Goodbye");  }',
+          
+          }
+        ]
+      }
+    ],
+  }
+  /* {
+    id: 8,
+    title: 'Bucles',
+    slug: 'bucles',
+    description: 'En esta pagina aprenderas a utilizar bucles en JavaScript',
+    lessons: [
+      {
+        type: 'teoric',
+        content: [
+          {
+            order: 1,
+            type: 'title',
+            content: 'Bucles',
+          },
+          {
+            order: 2,
+            type: 'paragraph',
+            content: 'Los bucles se pueden utilizar para ejecutar un bloque de código varias veces. Los bucles se pueden dividir en tres partes: Inicialización, Condición y Expresión final. Los bucles se pueden dividir en tres partes: Inicialización, Condición y Expresión final.'
+          },
+          {
+            order: 3,
+            type: 'snippet',
+            content: 'for (inicialización; condición; expresión final) { código a ejecutar }',
+          },
+          {
+            order: 4,
+            type: 'paragraph',
+            content: 'El bucle for se puede utilizar cuando se conoce el número de iteraciones. El bucle for se puede utilizar cuando se conoce el número de iteraciones.'
+          },
+          {
+            order: 5,
+            type: 'snippet',
+            content: 'var i = 0; while (i < 10) { console.log(i); i++; }',
+          },
+          {
+            order: 6,
+            type: 'paragraph',
+            content: 'El bucle while se puede utilizar cuando no se conoce el número de iteraciones. El bucle while se puede utilizar cuando no se conoce el número de iteraciones.'
+          },
+          {
+            order: 7,
+            type: 'snippet',
+            content: 'var i = 0; do { console.log(i); i++; } while (i < 10);',
+          },
+        ],
+      },
+    ],
+  },
+   */
 ];
+
