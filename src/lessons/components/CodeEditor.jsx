@@ -5,10 +5,9 @@ import 'ace-builds/src-noconflict/theme-xcode';
 import 'ace-builds/src-noconflict/ext-language_tools';
 import { parseScript } from 'esprima';
 import { Alert, Button, Flex } from '@mantine/core';
-import { IconAccessPoint, IconAlertCircle } from '@tabler/icons-react';
-import { IconAccessible } from '@tabler/icons-react';
+import { IconAlertCircle } from '@tabler/icons-react';
 
-export const CodeEditor = ({ content }) => {
+export const CodeEditor = ({ content, onCanCanjear }) => {
   const [code, setCode] = useState(content);
   const [error, setError] = useState();
 
@@ -20,16 +19,23 @@ export const CodeEditor = ({ content }) => {
     try {
       parseScript(code);
       console.log('No syntax errors found.');
+
       setError();
+      onCanCanjear(true);
     } catch (error) {
       setError(error);
       console.error('Syntax error:', error);
+      onCanCanjear(false);
     }
   }
 
   const onVerifyCode = () => {
     checkSyntax(code);
   };
+
+  useEffect(() => {
+    checkSyntax();
+  }, []);
 
   return (
     <>
@@ -59,15 +65,14 @@ export const CodeEditor = ({ content }) => {
         >
           {error.description} :
         </Alert>
-      ) : <Alert
-        mt={12}
-        icon={<IconAlertCircle size='1rem' />}
-        title={`No hay errores en el codigo`}
-        color='green'
-      >
-      </Alert>
-      }
-
+      ) : (
+        <Alert
+          mt={12}
+          icon={<IconAlertCircle size='1rem' />}
+          title={`No hay errores en el codigo`}
+          color='green'
+        ></Alert>
+      )}
     </>
   );
 };

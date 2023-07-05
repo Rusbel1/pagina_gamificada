@@ -7,6 +7,8 @@ export const sampleLessons = [
     lessons: [
       {
         type: 'Teoric',
+        ovaMessage: 'Buen trabajo!',
+        ovaSide: 'right',
         content: [
           {
             order: 1,
@@ -16,7 +18,8 @@ export const sampleLessons = [
           {
             order: 1,
             type: 'paragraph',
-            content: 'Una variable es un nombre dado a una ubicación de memoria. Es la unidad básica de almacenamiento en un programa. Las variables también las podemos ver como un deposito donde se almacena un valor y esta constituida por un nombre, un tipo ya sea numérico, cadena de caracteres, Booleano, entre otros. JavaScript puede almacenar los siguientes valores: Números: 5, 6.5, 7 etc. Valores Reales: 1.24, 2.90, 5.01, etc. Cadena de caracteres: "Hola Estrada Web Group" etc. Booleano o valores lógicos: verdadero o falso (true, false). Además de los tipos de datos de datos anteriores, JavaScript también admite dos tipos de datos más, nulos y no definidos y un objeto de tipo de datos compuesto. Aprenderemos sobre estos tipos de datos a detalle en otros artículos.'
+            content:
+              'Una variable es un nombre dado a una ubicación de memoria. Es la unidad básica de almacenamiento en un programa. Las variables también las podemos ver como un deposito donde se almacena un valor y esta constituida por un nombre, un tipo ya sea numérico, cadena de caracteres, Booleano, entre otros. JavaScript puede almacenar los siguientes valores: Números: 5, 6.5, 7 etc. Valores Reales: 1.24, 2.90, 5.01, etc. Cadena de caracteres: "Hola Estrada Web Group" etc. Booleano o valores lógicos: verdadero o falso (true, false). Además de los tipos de datos de datos anteriores, JavaScript también admite dos tipos de datos más, nulos y no definidos y un objeto de tipo de datos compuesto. Aprenderemos sobre estos tipos de datos a detalle en otros artículos.',
           },
           {
             order: 2,
@@ -26,7 +29,8 @@ export const sampleLessons = [
           {
             order: 3,
             type: 'paragraph',
-            content: 'El valor almacenado en una variable se puede cambiar durante la ejecución del programa. Una variable es solo un nombre dado a una ubicación de memoria, todas las operaciones realizadas en la variable afectan a esa ubicación de memoria. En JavaScript, todas las variables se deben declarar antes de poder utilizarlas.'
+            content:
+              'El valor almacenado en una variable se puede cambiar durante la ejecución del programa. Una variable es solo un nombre dado a una ubicación de memoria, todas las operaciones realizadas en la variable afectan a esa ubicación de memoria. En JavaScript, todas las variables se deben declarar antes de poder utilizarlas.',
           },
           {
             order: 4,
@@ -36,13 +40,15 @@ export const sampleLessons = [
           {
             order: 5,
             type: 'paragraph',
-            content: 'La declaración de una variable en JavaScript se realiza mediante la palabra reservada var. La sintaxis para declarar una variable es: var nombreVariable; donde nombreVariable es el nombre que le daremos a la variable. Ejemplo: var nombre; var edad; var sueldo; var estadoCivil; var fechaNacimiento; var direccion; var telefono; var email; var sexo; var nacionalidad; var profesion; var empresa; var puesto; var direccionEmpresa; var telefonoEmpresa; var emailEmpresa; var salario; var fechaIngreso; var fechaEgreso; var motivoEgreso; var nombreJefe; var telefonoJefe; var emailJefe; var nombrePadre; var nombreMadre; var nombreConyuge; var nombreHijo; var nombreHija; var nombreHermano; var nombreHermana; var nombreAmigo; var nombreAmiga; var nombreVecino; var nombreVecina; var nombreMascota; var nombreMascota; var nombreOtro;'
+            content:
+              'La declaración de una variable en JavaScript se realiza mediante la palabra reservada var. La sintaxis para declarar una variable es: var nombreVariable; donde nombreVariable es el nombre que le daremos a la variable. Ejemplo: var nombre; var edad; var sueldo; var estadoCivil; var fechaNacimiento; var direccion; var telefono; var email; var sexo; var nacionalidad; var profesion; var empresa; var puesto; var direccionEmpresa; var telefonoEmpresa; var emailEmpresa; var salario; var fechaIngreso; var fechaEgreso; var motivoEgreso; var nombreJefe; var telefonoJefe; var emailJefe; var nombrePadre; var nombreMadre; var nombreConyuge; var nombreHijo; var nombreHija; var nombreHermano; var nombreHermana; var nombreAmigo; var nombreAmiga; var nombreVecino; var nombreVecina; var nombreMascota; var nombreMascota; var nombreOtro;',
           },
-
         ],
       },
       {
         type: 'practical',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -52,13 +58,14 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'En este desafio deberas corregir un error en el codigo para que la variable se declare correctamente.',
+            content:
+              'En este desafio deberas corregir un error en el codigo para que la variable se declare correctamente.',
           },
           {
             order: 3,
             type: 'code_challenge',
             content: 'avr carro;  ',
-          }
+          },
         ],
       },
     ],
@@ -67,10 +74,13 @@ export const sampleLessons = [
     id: 1,
     title: 'Declaracion de variables en JavaScript',
     slug: 'declaracion-de-variables-en-javascript',
-    description: 'En esta seccion aprenderas a declarar variables en JavaScript',
+    description:
+      'En esta seccion aprenderas a declarar variables en JavaScript',
     lessons: [
       {
         type: 'teoric',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -80,12 +90,14 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: ' La declaración de una variable en JavaScript se realiza mediante la palabra reservada var. La sintaxis para declarar una variable es: var nombreVariable; donde nombreVariable es el nombre que le daremos a la variable.'
+            content:
+              ' La declaración de una variable en JavaScript se realiza mediante la palabra reservada var. La sintaxis para declarar una variable es: var nombreVariable; donde nombreVariable es el nombre que le daremos a la variable.',
           },
           {
             order: 3,
             type: 'snippet',
-            content: 'var nombre; var edad; var sueldo; var estadoCivil; var fechaNacimiento; var direccion; var telefono; var email; var sexo; var nacionalidad; var profesion; var empresa; var puesto; var direccionEmpresa; var telefonoEmpresa; var emailEmpresa; var salario; var fechaIngreso; var fechaEgreso; var motivoEgreso; var nombreJefe; var telefonoJefe; var emailJefe; var nombrePadre; var nombreMadre; var nombreConyuge; var nombreHijo; var nombreHija; var nombreHermano; var nombreHermana; var nombreAmigo; var nombreAmiga; var nombreVecino; var nombreVecina; var nombreMascota; var nombreMascota; var nombreOtro;'
+            content:
+              'var nombre; var edad; var sueldo; var estadoCivil; var fechaNacimiento; var direccion; var telefono; var email; var sexo; var nacionalidad; var profesion; var empresa; var puesto; var direccionEmpresa; var telefonoEmpresa; var emailEmpresa; var salario; var fechaIngreso; var fechaEgreso; var motivoEgreso; var nombreJefe; var telefonoJefe; var emailJefe; var nombrePadre; var nombreMadre; var nombreConyuge; var nombreHijo; var nombreHija; var nombreHermano; var nombreHermana; var nombreAmigo; var nombreAmiga; var nombreVecino; var nombreVecina; var nombreMascota; var nombreMascota; var nombreOtro;',
           },
           {
             order: 4,
@@ -95,33 +107,39 @@ export const sampleLessons = [
           {
             order: 5,
             type: 'paragraph',
-            content: 'La asignación de valores a una variable en JavaScript se realiza mediante el operador de asignación =. La sintaxis para asignar un valor a una variable es: nombreVariable = valor; donde nombreVariable es el nombre de la variable y valor es el valor que se le asignará a la variable.Ejemplo'
+            content:
+              'La asignación de valores a una variable en JavaScript se realiza mediante el operador de asignación =. La sintaxis para asignar un valor a una variable es: nombreVariable = valor; donde nombreVariable es el nombre de la variable y valor es el valor que se le asignará a la variable.Ejemplo',
           },
           {
             order: 6,
             type: 'snippet',
-            content: 'nombre = "Estrada Web Group"; edad = 25; sueldo = 1000.00; estadoCivil = "Soltero"; fechaNacimiento = "01/01/1990"; direccion = "Calle 1, Colonia 1, Ciudad 1, Pais 1"; telefono = "12345678"; email = jgkd@gmail.com'
+            content:
+              'nombre = "Estrada Web Group"; edad = 25; sueldo = 1000.00; estadoCivil = "Soltero"; fechaNacimiento = "01/01/1990"; direccion = "Calle 1, Colonia 1, Ciudad 1, Pais 1"; telefono = "12345678"; email = jgkd@gmail.com',
           },
         ],
       },
       {
         type: 'practical',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
             type: 'title',
-            content: 'Desafio de declarar una variable con un valor en JavaScript',
+            content:
+              'Desafio de declarar una variable con un valor en JavaScript',
           },
           {
             order: 2,
             type: 'paragraph',
-            content: 'En este desafio deberas corregir el error en la declaracion de una variable con un valor en JavaScript.',
+            content:
+              'En este desafio deberas corregir el error en la declaracion de una variable con un valor en JavaScript.',
           },
           {
             order: 3,
             type: 'code_challenge',
             content: 'estadocivir ? "soltero"',
-          }
+          },
         ],
       },
     ],
@@ -130,10 +148,14 @@ export const sampleLessons = [
     id: 2,
     title: 'Condicionales',
     slug: 'condicionales',
-    description: 'En esta pagina aprenderas a utilizar condicionales en JavaScript',
+    description:
+      'En esta pagina aprenderas a utilizar condicionales en JavaScript',
     lessons: [
       {
         type: 'teoric',
+
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -149,7 +171,7 @@ export const sampleLessons = [
           {
             order: 3,
             type: 'snippet',
-            content: 'if(condición){}'
+            content: 'if(condición){}',
           },
           {
             order: 4,
@@ -161,6 +183,8 @@ export const sampleLessons = [
       },
       {
         type: 'practical',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -170,7 +194,8 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'En este desafio deberas crear un condicional cualquiera, sin error de sintaxis y que se ejecute correctamente. Puedes utilizar cualquier tipo de condicional que hayas aprendido hasta ahora.',
+            content:
+              'En este desafio deberas crear un condicional cualquiera, sin error de sintaxis y que se ejecute correctamente. Puedes utilizar cualquier tipo de condicional que hayas aprendido hasta ahora.',
           },
           {
             order: 3,
@@ -186,18 +211,19 @@ export const sampleLessons = [
     title: 'Bucle FOR',
     slug: 'bucle for',
     description: 'En esta pagina aprenderas a utilizar bucle FOR en JavaScript',
-    lessons: [
-      
-    ]
+    lessons: [],
   },
   {
     id: 4,
     title: 'Bucle WHILE',
     slug: 'bucle while',
-    description: 'En esta pagina aprenderas a utilizar bucle WHILE en JavaScript',
+    description:
+      'En esta pagina aprenderas a utilizar bucle WHILE en JavaScript',
     lessons: [
       {
         type: 'teoric',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -207,22 +233,26 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'La estructura de control while es una estructura de control que permite repetir un bloque de instrucciones mientras que se cumpla una determinada condición.'
+            content:
+              'La estructura de control while es una estructura de control que permite repetir un bloque de instrucciones mientras que se cumpla una determinada condición.',
           },
           {
             order: 3,
             type: 'paragraph',
-            content: 'La condición se evalúa antes de ejecutar el bloque de instrucciones. Si la condición es verdadera, se ejecuta el bloque de instrucciones. Si la condición es falsa, no se ejecuta el bloque de instrucciones.'
+            content:
+              'La condición se evalúa antes de ejecutar el bloque de instrucciones. Si la condición es verdadera, se ejecuta el bloque de instrucciones. Si la condición es falsa, no se ejecuta el bloque de instrucciones.',
           },
           {
             order: 4,
             type: 'snippet',
             content: 'while (condición) { // Código a ejecutar }',
           },
-        ]
+        ],
       },
       {
         type: 'practical',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -232,16 +262,17 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'En este desafio deberas crear un bucle while cualquiera, sin error de sintaxis y que se ejecute correctamente. Puedes utilizar cualquier tipo de condicional que hayas aprendido hasta ahora.',
+            content:
+              'En este desafio deberas crear un bucle while cualquiera, sin error de sintaxis y que se ejecute correctamente. Puedes utilizar cualquier tipo de condicional que hayas aprendido hasta ahora.',
           },
           {
             order: 3,
             type: 'code_challenge',
             content: 'i=2; while (){ console.log(i); }',
           },
-        ]
+        ],
       },
-    ]
+    ],
   },
   {
     id: 5,
@@ -251,6 +282,8 @@ export const sampleLessons = [
     lessons: [
       {
         type: 'teoric',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -260,27 +293,31 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'Una función es un bloque de código diseñado para realizar una tarea específica. Una función se ejecuta cuando algo la invoca (la llama).'
+            content:
+              'Una función es un bloque de código diseñado para realizar una tarea específica. Una función se ejecuta cuando algo la invoca (la llama).',
           },
           {
             order: 3,
             type: 'paragraph',
-            content: 'En JavaScript, las funciones se definen con la palabra clave function, seguida de un nombre, seguido de paréntesis ().'
+            content:
+              'En JavaScript, las funciones se definen con la palabra clave function, seguida de un nombre, seguido de paréntesis ().',
           },
           {
             order: 4,
             type: 'paragraph',
-            content: 'Las funciones pueden tomar parámetros (argumentos).'
+            content: 'Las funciones pueden tomar parámetros (argumentos).',
           },
           {
             order: 5,
             type: 'paragraph',
-            content: 'Los parámetros se enumeran entre paréntesis () en la definición de la función.'
+            content:
+              'Los parámetros se enumeran entre paréntesis () en la definición de la función.',
           },
           {
             order: 6,
             type: 'paragraph',
-            content: 'La función anterior (funcion1) tiene un parámetro llamado nombre. El valor del parámetro se pasa a la función cuando se llama a la función.'
+            content:
+              'La función anterior (funcion1) tiene un parámetro llamado nombre. El valor del parámetro se pasa a la función cuando se llama a la función.',
           },
           {
             order: 7,
@@ -290,22 +327,26 @@ export const sampleLessons = [
           {
             order: 8,
             type: 'paragraph',
-            content: 'Las funciones a menudo calculan un valor de retorno. El valor de retorno se devuelve de la función.'
+            content:
+              'Las funciones a menudo calculan un valor de retorno. El valor de retorno se devuelve de la función.',
           },
           {
             order: 9,
             type: 'paragraph',
-            content: 'La función anterior (funcion1) devuelve el resultado de multiplicar el parámetro x por 2.'
+            content:
+              'La función anterior (funcion1) devuelve el resultado de multiplicar el parámetro x por 2.',
           },
           {
             order: 10,
             type: 'snippet',
             content: 'function funcion1(x) { return 2 * x; }',
           },
-        ]
+        ],
       },
       {
         type: 'practical',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -315,16 +356,17 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'En este desafio deberas modificar una funcion, para que este sin error de sintaxis y que se ejecute correctamente.',
+            content:
+              'En este desafio deberas modificar una funcion, para que este sin error de sintaxis y que se ejecute correctamente.',
           },
           {
             order: 3,
             type: 'code_challenge',
             content: ' funcion1(){ console.log("Hola Mundo"); }',
           },
-        ]
+        ],
       },
-    ]
+    ],
   },
   {
     id: 6,
@@ -334,6 +376,8 @@ export const sampleLessons = [
     lessons: [
       {
         type: 'teoric',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -343,37 +387,45 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'En JavaScript, casi todo es un objeto. Los objetos son valores en JavaScript. Se debe considerar que los objetos tienen propiedades y métodos. Se Puede acceder a las propiedades de un objeto con un punto (.). Tambien los objetos se pueden definir con llaves {}.'
+            content:
+              'En JavaScript, casi todo es un objeto. Los objetos son valores en JavaScript. Se debe considerar que los objetos tienen propiedades y métodos. Se Puede acceder a las propiedades de un objeto con un punto (.). Tambien los objetos se pueden definir con llaves {}.',
           },
           {
             order: 4,
             type: 'paragraph',
-            content: 'Las propiedades y los métodos se definen dentro de las llaves. Los objetos JavaScript son contenedores para valores con nombre. Los valores se escriben como pares de nombre: valor (nombre y valor separados por dos puntos). Y ademas los métodos son acciones que se pueden realizar en objetos.'
+            content:
+              'Las propiedades y los métodos se definen dentro de las llaves. Los objetos JavaScript son contenedores para valores con nombre. Los valores se escriben como pares de nombre: valor (nombre y valor separados por dos puntos). Y ademas los métodos son acciones que se pueden realizar en objetos.',
           },
           {
             order: 5,
             type: 'snippet',
-            content: 'var persona = {nombre: "Juan", apellido: "Perez", edad: 25, colorDeOjos: "azul"};',
+            content:
+              'var persona = {nombre: "Juan", apellido: "Perez", edad: 25, colorDeOjos: "azul"};',
           },
           {
             order: 6,
             type: 'paragraph',
-            content: 'Los métodos son acciones que se pueden realizar en objetos. Los métodos se almacenan en propiedades como funciones. Un método es una función almacenada como una propiedad.'
+            content:
+              'Los métodos son acciones que se pueden realizar en objetos. Los métodos se almacenan en propiedades como funciones. Un método es una función almacenada como una propiedad.',
           },
           {
             order: 7,
             type: 'snippet',
-            content: 'var persona = {nombre: "Juan", apellido: "Perez", edad: 25, colorDeOjos: "azul", nombreCompleto: function() { return this.nombre + " " + this.apellido; }};',
+            content:
+              'var persona = {nombre: "Juan", apellido: "Perez", edad: 25, colorDeOjos: "azul", nombreCompleto: function() { return this.nombre + " " + this.apellido; }};',
           },
           {
             order: 8,
             type: 'paragraph',
-            content: 'El ejemplo anterior define un objeto llamado persona, con cuatro propiedades. Las propiedades son llamadas nombre, apellido, edad y colorDeOjos. El método se llama nombreCompleto y es una función que devuelve el nombre y el apellido de la persona.'
+            content:
+              'El ejemplo anterior define un objeto llamado persona, con cuatro propiedades. Las propiedades son llamadas nombre, apellido, edad y colorDeOjos. El método se llama nombreCompleto y es una función que devuelve el nombre y el apellido de la persona.',
           },
-        ]
+        ],
       },
       {
         type: 'practical',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -383,16 +435,18 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'En este desafio deberas modificar un objeto, para que este sin error de sintaxis y que se ejecute correctamente.',
+            content:
+              'En este desafio deberas modificar un objeto, para que este sin error de sintaxis y que se ejecute correctamente.',
           },
           {
             order: 3,
             type: 'code_challenge',
-            content: ' var persona ? {nombre: "Juan", apellido: "Perez", edad: 25, colorDeOjos: "azul"};',
+            content:
+              ' var persona ? {nombre: "Juan", apellido: "Perez", edad: 25, colorDeOjos: "azul"};',
           },
-        ]
+        ],
       },
-    ]
+    ],
   },
   {
     id: 7,
@@ -402,6 +456,8 @@ export const sampleLessons = [
     lessons: [
       {
         type: 'teoric',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -411,7 +467,8 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'Los arrays son objetos JavaScript para almacenar varios valores en una sola variable. Los arrays se pueden escribir con corchetes [ ], Los elementos de los arrays se separan con comas, estos son contenedores para valores y se escriben como pares de nombre: valor (nombre y valor separados por dos puntos).'
+            content:
+              'Los arrays son objetos JavaScript para almacenar varios valores en una sola variable. Los arrays se pueden escribir con corchetes [ ], Los elementos de los arrays se separan con comas, estos son contenedores para valores y se escriben como pares de nombre: valor (nombre y valor separados por dos puntos).',
           },
           {
             order: 3,
@@ -421,7 +478,7 @@ export const sampleLessons = [
           {
             order: 4,
             type: 'paragraph',
-            content: 'Los arrays se pueden definir con llaves { }.'
+            content: 'Los arrays se pueden definir con llaves { }.',
           },
           {
             order: 5,
@@ -431,17 +488,19 @@ export const sampleLessons = [
           {
             order: 6,
             type: 'paragraph',
-            content: 'Los arrays se pueden definir con la palabra clave new.'
+            content: 'Los arrays se pueden definir con la palabra clave new.',
           },
           {
             order: 7,
             type: 'snippet',
             content: 'var frutas = new Array("Manzana", "Banana", "Naranja");',
           },
-        ]
+        ],
       },
       {
         type: 'practical',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -451,25 +510,29 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'En este desafio deberas crear un array cualquiera, sin error de sintaxis y que se ejecute correctamente. Puedes utilizar cualquier tipo de condicional que hayas aprendido hasta ahora.',
+            content:
+              'En este desafio deberas crear un array cualquiera, sin error de sintaxis y que se ejecute correctamente. Puedes utilizar cualquier tipo de condicional que hayas aprendido hasta ahora.',
           },
           {
             order: 3,
             type: 'code_challenge',
             content: '',
           },
-        ]
+        ],
       },
-    ]
+    ],
   },
   {
     id: 8,
     title: 'Condicional if anidado',
     slug: 'condicional-if-anidado',
-    description: 'En esta pagina aprenderas a utilizar condicionales if anidados en JavaScript',
+    description:
+      'En esta pagina aprenderas a utilizar condicionales if anidados en JavaScript',
     lessons: [
       {
         type: 'teoric',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -491,6 +554,8 @@ export const sampleLessons = [
       },
       {
         type: 'practical',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -500,7 +565,8 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'En este desafio deberas modificar un condicional if anidado cualquiera, para que este sin error de sintaxis y que se ejecute correctamente.',
+            content:
+              'En este desafio deberas modificar un condicional if anidado cualquiera, para que este sin error de sintaxis y que se ejecute correctamente.',
           },
           {
             order: 3,
@@ -508,17 +574,20 @@ export const sampleLessons = [
             content: ' if (sexo="mujer"){if sexo"hombre"}',
           },
         ],
-      }
+      },
     ],
   },
   {
     id: 9,
     title: 'Condicional if else',
     slug: 'condicional-if-else',
-    description: 'En este apartado aprenderas a utilizar condicionales if else en JavaScript',
+    description:
+      'En este apartado aprenderas a utilizar condicionales if else en JavaScript',
     lessons: [
       {
         type: 'teoric',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -536,10 +605,12 @@ export const sampleLessons = [
             type: 'snippet',
             content: 'if (condición){} else {}',
           },
-        ]
+        ],
       },
       {
         type: 'practical',
+        ovaMessage: 'Sigue así!',
+        ovaSide: 'left',
         content: [
           {
             order: 1,
@@ -549,18 +620,19 @@ export const sampleLessons = [
           {
             order: 2,
             type: 'paragraph',
-            content: 'En este desafio deberas modificar un condicional if-else cualquiera, para que este sin error de sintaxis y que se ejecute correctamente.',
+            content:
+              'En este desafio deberas modificar un condicional if-else cualquiera, para que este sin error de sintaxis y que se ejecute correctamente.',
           },
           {
             order: 3,
             type: 'code_challenge',
-            content: ' if (x > y) {    alert("Hello world!");  } seel {    alert("Goodbye");  }',
-          
-          }
-        ]
-      }
+            content:
+              ' if (x > y) {    alert("Hello world!");  } seel {    alert("Goodbye");  }',
+          },
+        ],
+      },
     ],
-  }
+  },
   /* {
     id: 8,
     title: 'Bucles',
@@ -611,4 +683,3 @@ export const sampleLessons = [
   },
    */
 ];
-
