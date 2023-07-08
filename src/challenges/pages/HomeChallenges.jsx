@@ -41,7 +41,7 @@ export const HomeChallenges = () => {
                 </Flex>
               </Flex>
 
-              <Flex p={4}>
+             {/*  <Flex p={4}>
               <ThemeIcon color='blue' size={24} radius='xl' mr={12}>
                 <IconCircleCheck size='1rem' />
                 </ThemeIcon>
@@ -51,7 +51,7 @@ export const HomeChallenges = () => {
                 </Anchor>
                 <Text color='blue'>10/20</Text>
                 </Flex>
-              </Flex>
+              </Flex> */}
         
         </Accordion.Panel>
         </Accordion.Item>
@@ -64,7 +64,7 @@ export const HomeChallenges = () => {
                 <IconCircleCheck size='1rem' />
               </ThemeIcon>
               <Flex justify='space-between' align='center' w='100%'>
-                <Anchor component={Link} to={`/lesson/2`}>
+                <Anchor component={Link} to={`/lesson/1`}>
                   Condicional IF
                 </Anchor>
                 <Text color='green'>20/20</Text>
@@ -75,7 +75,7 @@ export const HomeChallenges = () => {
                 <IconCircleDashed size='1rem' />
               </ThemeIcon>
               <Flex justify='space-between' align='center' w='100%'>
-                <Anchor component={Link} to={`/lesson/8`}>
+                <Anchor component={Link} to={`/lesson/2`}>
                   Condicional If anidado
                 </Anchor>
                 <Text color='green'>0/20</Text>
@@ -86,7 +86,7 @@ export const HomeChallenges = () => {
                 <IconCircleDashed size='1rem' />
               </ThemeIcon>
               <Flex justify='space-between' align='center' w='100%'>
-                <Anchor component={Link} to={`/lesson/9`}>
+                <Anchor component={Link} to={`/lesson/3`}>
                   Condicional IF ELSE
                 </Anchor>
                 <Text color='blue'>10/20</Text>
@@ -104,7 +104,7 @@ export const HomeChallenges = () => {
                 <IconCircleDashed size='1rem' />
               </ThemeIcon>
               <Flex justify='space-between' align='center' w='100%'>
-                <Anchor component={Link} to={`/lesson/3`}>
+                <Anchor component={Link} to={`/lesson/4`}>
                   Como es la estructura ciclica FOR
                 </Anchor>
                 <Text color='blue'>10/20</Text>
@@ -116,7 +116,7 @@ export const HomeChallenges = () => {
                 <IconCircleDashed size='1rem' />
               </ThemeIcon>
               <Flex justify='space-between' align='center' w='100%'>
-                <Anchor component={Link} to={`/lesson/4`}>
+                <Anchor component={Link} to={`/lesson/5`}>
                   Como es la estructura ciclica WHILE
                 </Anchor>
                 <Text color='green'>0/20</Text>
@@ -133,7 +133,7 @@ export const HomeChallenges = () => {
                 <IconCircleCheck size='1rem' />
               </ThemeIcon>
               <Flex justify='space-between' align='center' w='100%'>
-              <Anchor component={Link} to={`/lesson/5`}>
+              <Anchor component={Link} to={`/lesson/6`}>
                 <>Como utilizar Funciones en javascript</>
               </Anchor>
                 <Text color='green'>20/20</Text>
@@ -151,7 +151,7 @@ export const HomeChallenges = () => {
                 <IconCircleCheck size='1rem' />
               </ThemeIcon>
               <Flex justify='space-between' align='center' w='100%'>
-              <Anchor component={Link} to={`/lesson/6`}>
+              <Anchor component={Link} to={`/lesson/7`}>
                 <>Como utilizar Objetos en javascript</>
               </Anchor>
                 <Text color='green'>20/20</Text>
@@ -167,7 +167,7 @@ export const HomeChallenges = () => {
                 <IconCircleCheck size='1rem' />
               </ThemeIcon>
               <Flex justify='space-between' align='center' w='100%'>
-              <Anchor component={Link} to={`/lesson/7`}>
+              <Anchor component={Link} to={`/lesson/8`}>
                 <>Como utilizar Arrays en javascript</>
               </Anchor>
                 <Text color='grey'>0/20</Text>

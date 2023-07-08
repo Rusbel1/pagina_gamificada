@@ -148,7 +148,7 @@ export const LessonPage = () => {
 
         <Flex justify='center' mt={14}>
           <Button
-            size='xs'
+            size='md'
             variant='outline'
             color='green'
             onClick={() => navigate('/')}
