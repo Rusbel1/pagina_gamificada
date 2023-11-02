@@ -1,5 +1,4 @@
 import { Avatar, Button, Container, Flex, Text } from '@mantine/core';
-
 import { IconX } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 

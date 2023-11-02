@@ -76,7 +76,7 @@ export const sampleLessons = [
       },
     ],
   },
- 
+
   {
     id: 2,
     title: 'Condicionales',
@@ -272,7 +272,7 @@ export const sampleLessons = [
           },
           {
             order: 3,
-            type:'Title',
+            type: 'Title',
             content: 'Sintaxis del bucle FOR',
           },
           {
@@ -615,7 +615,7 @@ export const sampleLessons = [
       },
     ],
   },
-  
+
   /* {
     id: 8,
     title: 'Bucles',
@@ -665,78 +665,78 @@ export const sampleLessons = [
     ],
   },
    */
-   /* {
-    id: 1,
-    title: 'Declaracion de variables en JavaScript',
-    slug: 'declaracion-de-variables-en-javascript',
-    description:
-      'En esta seccion aprenderas a declarar variables en JavaScript',
-    lessons: [
-      {
-        type: 'teoric',
-        ovaMessage: 'Sigue así!',
-        ovaSide: 'left',
-        content: [
-          {
-            order: 1,
-            type: 'title',
-            content: 'Declaracion de variables en JavaScript',
-          },
-          {
-            order: 2,
-            type: 'paragraph',
-            content:
-              ' La declaración de una variable en JavaScript se realiza mediante la palabra reservada var. La sintaxis para declarar una variable es: var nombreVariable; donde nombreVariable es el nombre que le daremos a la variable.',
-          },
-          {
-            order: 3,
-            type: 'snippet',
-            content:
-              'var nombre; var edad; var sueldo; var estadoCivil; var fechaNacimiento; var direccion; var telefono; var email; var sexo; var nacionalidad; var profesion; var empresa; var puesto; var direccionEmpresa; var telefonoEmpresa; var emailEmpresa; var salario; var fechaIngreso; var fechaEgreso; var motivoEgreso; var nombreJefe; var telefonoJefe; var emailJefe; var nombrePadre; var nombreMadre; var nombreConyuge; var nombreHijo; var nombreHija; var nombreHermano; var nombreHermana; var nombreAmigo; var nombreAmiga; var nombreVecino; var nombreVecina; var nombreMascota; var nombreMascota; var nombreOtro;',
-          },
-          {
-            order: 4,
-            type: 'title',
-            content: 'Asignación de valores a variables en JavaScript',
-          },
-          {
-            order: 5,
-            type: 'paragraph',
-            content:
-              'La asignación de valores a una variable en JavaScript se realiza mediante el operador de asignación =. La sintaxis para asignar un valor a una variable es: nombreVariable = valor; donde nombreVariable es el nombre de la variable y valor es el valor que se le asignará a la variable.Ejemplo',
-          },
-          {
-            order: 6,
-            type: 'snippet',
-            content:
-              'nombre = "Estrada Web Group"; edad = 25; sueldo = 1000.00; estadoCivil = "Soltero"; fechaNacimiento = "01/01/1990"; direccion = "Calle 1, Colonia 1, Ciudad 1, Pais 1"; telefono = "12345678"; email = jgkd@gmail.com',
-          },
-        ],
-      },
-      {
-        type: 'practical',
-        ovaMessage: 'Sigue así!',
-        ovaSide: 'left',
-        content: [
-          {
-            order: 1,
-            type: 'title',
-            content:
-              'Desafio de declarar una variable con un valor en JavaScript',
-          },
-          {
-            order: 2,
-            type: 'paragraph',
-            content:
-              'En este desafio deberas corregir el error en la declaracion de una variable con un valor en JavaScript.',
-          },
-          {
-            order: 3,
-            type: 'code_challenge',
-            content: 'estadocivir ? "soltero"',
-          },
-        ],
-      },
-    ],
-  }, */
+  /* {
+   id: 1,
+   title: 'Declaracion de variables en JavaScript',
+   slug: 'declaracion-de-variables-en-javascript',
+   description:
+     'En esta seccion aprenderas a declarar variables en JavaScript',
+   lessons: [
+     {
+       type: 'teoric',
+       ovaMessage: 'Sigue así!',
+       ovaSide: 'left',
+       content: [
+         {
+           order: 1,
+           type: 'title',
+           content: 'Declaracion de variables en JavaScript',
+         },
+         {
+           order: 2,
+           type: 'paragraph',
+           content:
+             ' La declaración de una variable en JavaScript se realiza mediante la palabra reservada var. La sintaxis para declarar una variable es: var nombreVariable; donde nombreVariable es el nombre que le daremos a la variable.',
+         },
+         {
+           order: 3,
+           type: 'snippet',
+           content:
+             'var nombre; var edad; var sueldo; var estadoCivil; var fechaNacimiento; var direccion; var telefono; var email; var sexo; var nacionalidad; var profesion; var empresa; var puesto; var direccionEmpresa; var telefonoEmpresa; var emailEmpresa; var salario; var fechaIngreso; var fechaEgreso; var motivoEgreso; var nombreJefe; var telefonoJefe; var emailJefe; var nombrePadre; var nombreMadre; var nombreConyuge; var nombreHijo; var nombreHija; var nombreHermano; var nombreHermana; var nombreAmigo; var nombreAmiga; var nombreVecino; var nombreVecina; var nombreMascota; var nombreMascota; var nombreOtro;',
+         },
+         {
+           order: 4,
+           type: 'title',
+           content: 'Asignación de valores a variables en JavaScript',
+         },
+         {
+           order: 5,
+           type: 'paragraph',
+           content:
+             'La asignación de valores a una variable en JavaScript se realiza mediante el operador de asignación =. La sintaxis para asignar un valor a una variable es: nombreVariable = valor; donde nombreVariable es el nombre de la variable y valor es el valor que se le asignará a la variable.Ejemplo',
+         },
+         {
+           order: 6,
+           type: 'snippet',
+           content:
+             'nombre = "Estrada Web Group"; edad = 25; sueldo = 1000.00; estadoCivil = "Soltero"; fechaNacimiento = "01/01/1990"; direccion = "Calle 1, Colonia 1, Ciudad 1, Pais 1"; telefono = "12345678"; email = jgkd@gmail.com',
+         },
+       ],
+     },
+     {
+       type: 'practical',
+       ovaMessage: 'Sigue así!',
+       ovaSide: 'left',
+       content: [
+         {
+           order: 1,
+           type: 'title',
+           content:
+             'Desafio de declarar una variable con un valor en JavaScript',
+         },
+         {
+           order: 2,
+           type: 'paragraph',
+           content:
+             'En este desafio deberas corregir el error en la declaracion de una variable con un valor en JavaScript.',
+         },
+         {
+           order: 3,
+           type: 'code_challenge',
+           content: 'estadocivir ? "soltero"',
+         },
+       ],
+     },
+   ],
+ }, */
 ];
