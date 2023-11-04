@@ -2,25 +2,17 @@ import cx from 'clsx';
 import { useState } from 'react';
 import {
   Container,
-  Avatar,
   UnstyledButton,
   Group,
   Text,
   Menu,
-  Tabs,
-  Burger,
   rem,
   useMantineTheme,
 } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
 import {
   IconLogout,
-  IconHeart,
-  IconStar,
   IconMessage,
   IconSettings,
-  IconPlayerPause,
-  IconTrash,
   IconSwitchHorizontal,
   IconChevronDown,
 } from '@tabler/icons-react';
@@ -47,7 +39,7 @@ export function Header() {
         <IconBrandMantine size={58} color='white' />
       </Container>
       <Container className={classes.menupoints}>
-        <Text size="md" weight={600} ml={5} style={{padding:20,borderRadius:40,color:'cyan'}}>
+        <Text size="md" weight={600} ml={5} style={{padding:20,borderRadius:40,color:'white'}}>
           Points  {user.points}
         </Text>
         <Menu
@@ -63,7 +55,7 @@ export function Header() {
               className={cx(classes.user, { [classes.userActive]: userMenuOpened })}
             >
               <Group gap={7}>
-                <IconUserCircle src={user.image} alt={user.name} radius="xl" size={20} />
+                <IconUserCircle src={user.image} alt={user.name} radius="xl" size={20} color='white' />
                 <Text fw={500} size="sm" lh={1} mr={3} color='white'>
                   {user.name}
                 </Text>

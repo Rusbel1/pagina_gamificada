@@ -7,11 +7,13 @@ import {
     Container,
     Button
 } from '@mantine/core';
+import background from '../../assets/back_color.png'
 
 
 export function RegisterPage() {
     return (
         <Container size={420} my={40}>
+            <div style={{ backgroundImage: `url(${background})`,width:'100%',height:'100vh',position:'absolute',top:0,left:0, zIndex:-1,backgroundSize: 'cover' }}></div>
             <Title ta="center">
                 Register
             </Title>
