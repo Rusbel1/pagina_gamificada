@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: space-between;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.137); 
+        
 }
 
 .menupoints {
@@ -25,6 +26,7 @@
     align-items: center;
     justify-content: space-between;
     padding-bottom: var(--mantine-spacing-sm);
+
 }
 
 .user {

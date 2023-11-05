@@ -11,6 +11,8 @@ import {
 import { Wheel } from 'react-custom-roulette';
 import { IconCircleCheck, IconCircleDashed } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
+import { OvaCharacter } from '../../lessons/components';
+
 
 const data = [
   { optionSize: 10, option: '10 points', style: { backgroundColor: '#175fa9', textColor: 'white', fontSize: '25' } },
@@ -36,8 +38,9 @@ export const HomeChallenges = () => {
       setMustSpin(true);
     }
   }
+
   return (
-    <Container size='md' px='xs' mt={32} style={{ marginBottom: 50, display: 'flex', justifyContent: 'space-between',flexDirection:'row' }}>
+    <Container  size='md' px='xs' mt={32} style={{ marginBottom: 50, display: 'flex', justifyContent: 'space-between',flexDirection:'row' }}>
       <div>
         <Title order={1}>Programación básica</Title>
         <Text mt={16}>Desafios de programacion basica para aprender sobre la programacion, gana puntos realizando desafios para desbloquear muchos mas añadiendo un poco mas de dificultad.</Text>
@@ -68,7 +71,6 @@ export const HomeChallenges = () => {
 
             </Accordion.Panel>
           </Accordion.Item>
-
           <Accordion.Item value='Estructuras Condicionales'>
             <Accordion.Control>Estructuras Condicionales</Accordion.Control>
             <Accordion.Panel>
@@ -191,30 +193,11 @@ export const HomeChallenges = () => {
           </Accordion.Item>
           <Text mt={40}> <strong>Niveles avanzados proximamente.....</strong> </Text>
         </Accordion>
-      </div>
-      <div>
-        <Container style={{ display: 'flex', alignItems: 'center', flexDirection: 'column',marginLeft:'10px',paddingleft:'150px' }} >
-        <Title order={3}>Ruleta Diaria</Title>
-        <Text mt={0}>Gana puntos diarios gratis </Text>
-          <Wheel
-            mustStartSpinning={mustSpin}
-            spinDuration={[0.4]}
-            prizeNumber={prizeNumber}
-            data={data}
-            outerBorderColor={["grey"]}
-            outerBorderWidth={[1]}
-            innerBorderColor={["#f2f2f2"]}
-            radiusLineColor={["tranparent"]}
-            radiusLineWidth={[1]}
-            textColors={["#f5f5f5"]}
-            textDistance={55}
-            fontSize={[10]}
-            onStopSpinning={() => {
-              setMustSpin(false);
-            }}
-          />
-          <button style={{ cursor: 'pointer', boxShadow: '10px', backgroundColor: 'darkslategray', color: 'white', width: '7.5rem', height: '2.3rem', borderRadius: '20px' }} onClick={handleSpinClick}>SPIN</button>
-        </Container>
+        <OvaCharacter
+              message={'Sere tu apoyo en los desafios' }
+              side={'left'}
+
+            />
       </div>
     </Container>
 
