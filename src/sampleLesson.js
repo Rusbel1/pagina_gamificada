@@ -2,7 +2,7 @@ export const sampleLessons = [
   {
     id: 0,
     title: 'Variables',
-    slug: 'variables',
+    slug: 'declaracion de variables',
     description: 'En este curso aprenderas a declarar variables en JavaScript',
     lessons: [
       {
@@ -16,35 +16,35 @@ export const sampleLessons = [
             content: 'Variables en JavaScript',
           },
           {
-            order: 1,
+            order: 2,
             type: 'paragraph',
             content:
               'Una variable es un nombre dado a una ubicación de memoria. Es la unidad básica de almacenamiento en un programa. Las variables también las podemos ver como un deposito donde se almacena un valor y esta constituida por un nombre, un tipo ya sea numérico, cadena de caracteres, Booleano, entre otros. JavaScript puede almacenar los siguientes valores: Números: 5, 6.5, 7 etc. Valores Reales: 1.24, 2.90, 5.01, etc. Cadena de caracteres: "Hola Estrada Web Group" etc. Booleano o valores lógicos: verdadero o falso (true, false). Además de los tipos de datos de datos anteriores, JavaScript también admite dos tipos de datos más, nulos y no definidos y un objeto de tipo de datos compuesto. Aprenderemos sobre estos tipos de datos a detalle en otros artículos.',
           },
           {
-            order: 2,
+            order: 3,
             type: 'title',
             content: 'Características de las variables en JavaScript',
           },
           {
-            order: 3,
+            order: 4,
             type: 'paragraph',
             content:
               'El valor almacenado en una variable se puede cambiar durante la ejecución del programa. Una variable es solo un nombre dado a una ubicación de memoria, todas las operaciones realizadas en la variable afectan a esa ubicación de memoria. En JavaScript, todas las variables se deben declarar antes de poder utilizarlas.',
           },
           {
-            order: 4,
+            order: 5,
             type: 'title',
             content: 'Declaración de variables en JavaScript',
           },
           {
-            order: 5,
+            order: 6,
             type: 'paragraph',
             content:
               'La declaración de una variable en JavaScript se realiza mediante la palabra reservada var. La sintaxis para declarar una variable es:',
           },
           {
-            order: 6,
+            order: 7,
             type: 'snippet',
             content:
               'var nombre; var edad; var sueldo; var estadoCivil; var fechaNacimiento; var direccion; var telefono; var email; var sexo; var nacionalidad',
@@ -78,7 +78,7 @@ export const sampleLessons = [
   },
 
   {
-    id: 2,
+    id: 1,
     title: 'Condicionales',
     slug: 'condicionales',
     description:
@@ -138,6 +138,7 @@ export const sampleLessons = [
       },
     ],
   },
+
   {
     id: 2,
     title: 'Condicional if anidado',
@@ -171,7 +172,7 @@ export const sampleLessons = [
       {
         type: 'practical',
         ovaMessage: 'Sigue así!',
-        ovaSide: 'left',
+        ovaSide: 'right',
         content: [
           {
             order: 1,
@@ -225,7 +226,7 @@ export const sampleLessons = [
       },
       {
         type: 'practical',
-        ovaMessage: 'Sigue así!',
+        ovaMessage: 'Tu puedes!',
         ovaSide: 'left',
         content: [
           {

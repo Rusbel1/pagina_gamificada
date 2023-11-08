@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from "react";
 import {
   Accordion,
   Container,
@@ -7,71 +7,88 @@ import {
   ThemeIcon,
   Title,
   Anchor,
-} from '@mantine/core';
-import { Wheel } from 'react-custom-roulette';
-import { IconCircleCheck, IconCircleDashed } from '@tabler/icons-react';
-import { Link } from 'react-router-dom';
-import { OvaCharacter } from '../../lessons/components';
-
-
-const data = [
-  { optionSize: 10, option: '10 points', style: { backgroundColor: '#175fa9', textColor: 'white', fontSize: '25' } },
-  { optionSize: 15, option: '5 points', style: { backgroundColor: '#169ed8', textColor: 'white', fontSize: '25' } },
-  { optionSize: 7, option: '20 points', style: { backgroundColor: '#239b63', textColor: 'white', fontSize: '20' } },
-  { optionSize: 4, option: '40 points', style: { backgroundColor: '#64b031', textColor: 'white', fontSize: '19' } },
-  { optionSize: 3, option: '60 points', style: { backgroundColor: '#efe61f', textColor: 'white', fontSize: '18' } },
-  { optionSize: 3, option: '30 points', style: { backgroundColor: '#f7a416', textColor: 'white', fontSize: '17' } },
-  { optionSize: 2, option: '100 points', style: { backgroundColor: '#e6471d', textColor: 'white', fontSize: '17' } },
-  { optionSize: 5, option: '50 points', style: { backgroundColor: '#3f297e', textColor: 'white', fontSize: '14' } },
-];
+} from "@mantine/core";
+import { IconCircleCheck, IconCircleDashed } from "@tabler/icons-react";
+import { Link } from "react-router-dom";
+import { OvaCharacter } from "../../lessons/components";
+import { axiosController } from "../../helper/axiosController";
+import { useEffect } from "react";
+import { useSetState } from "@mantine/hooks";
+import { useState } from "react";
 
 export const HomeChallenges = () => {
-  const [mustSpin, setMustSpin] = useState(false);
-  const [prizeNumber, setPrizeNumber] = useState({
-    
-  });
+  const [sections, setSections] = useState([]);
 
-  const handleSpinClick = () => {
-    if (!mustSpin) {
-      const newPrizeNumber = Math.floor(Math.random() * data.length);
-      setPrizeNumber(newPrizeNumber);
-      setMustSpin(true);
-    }
-  }
+  const token = localStorage.getItem("token");
+  const headers = {
+    headers: {
+      token: token,
+    },
+  };
+  useEffect(() => {
+    axiosController.get("/sectionGet", headers).then((response) => {
+      setSections(response.data);
+      console.log(sections.uid);
+    });
+  }, []);
 
   return (
-    <Container  size='md' px='xs' mt={32} style={{ marginBottom: 50, display: 'flex', justifyContent: 'space-between',flexDirection:'row' }}>
+    <Container
+      size="md"
+      px="xs"
+      mt={32}
+      style={{
+        marginBottom: 50,
+        display: "flex",
+        justifyContent: "space-between",
+        flexDirection: "row",
+      }}
+    >
       <div>
         <Title order={1}>Programación básica</Title>
-        <Text mt={16}>Desafios de programacion basica para aprender sobre la programacion, gana puntos realizando desafios para desbloquear muchos mas añadiendo un poco mas de dificultad.</Text>
-        
+        <Text mt={16}>
+          Desafios de programacion basica para aprender sobre la programacion,
+          gana puntos realizando desafios para desbloquear muchos mas añadiendo
+          un poco mas de dificultad.
+        </Text>
         <Title order={2}>Seras capaz de completarlos? Averiguemoslo</Title>
-
-        <Text mt={40}> <strong>Nivel 1(Basico)</strong> </Text>
+        <Text mt={40}>
+          {" "}
+          <strong>Nivel 1(Basico)</strong>{" "}
+        </Text>
         <Accordion
-          variant='contained'
-          defaultValue='customization'
+          variant="contained"
+          defaultValue="customization"
           mt={8}
-          radius='xs'
+          radius="xs"
         >
-          <Accordion.Item value='variables'>
-            <Accordion.Control>Variables</Accordion.Control>
-            <Accordion.Panel>
-              <Flex p={4}>
-                <ThemeIcon color='teal' size={24} radius='xl' mr={12}>
-                  <IconCircleCheck size='1rem' />
-                </ThemeIcon>
-                <Flex justify='space-between' align='center' w='100%'>
-                  <Anchor component={Link} to={`/lesson/0`}>
-                    Variables
-                  </Anchor>
-                  <Text color='green'>20/20</Text>
-                </Flex>
-              </Flex>
+          {sections.map((section, index) => {
+            /* axiosController
+              .get(`/lessonGetByIdSection/${section.id}`, headers)
+              .then((response) => {
+                console.log(response.data);
+              }); */
+            return (
+              <Accordion.Item value={section.title} key={index}>
+                <Accordion.Control>{section.title}</Accordion.Control>
+                <Accordion.Panel>
+                  <Flex p={4}>
+                    <ThemeIcon color="teal" size={24} radius="xl" mr={12}>
+                      <IconCircleCheck size="1rem" />
+                    </ThemeIcon>
+                    <Flex justify="space-between" align="center" w="100%">
+                      <Anchor component={Link} to={`/lesson/${section.uid}`}>
+                        {section.title}
+                      </Anchor>
+                      <Text color="green">20/20</Text>
+                    </Flex>
+                  </Flex>
+                </Accordion.Panel>
+              </Accordion.Item>
+            );
+          })}
 
-            </Accordion.Panel>
-          </Accordion.Item>
-          <Accordion.Item value='Estructuras Condicionales'>
+          {/* <Accordion.Item value='Estructuras Condicionales'>
             <Accordion.Control>Estructuras Condicionales</Accordion.Control>
             <Accordion.Panel>
               <Flex p={4}>
@@ -190,17 +207,14 @@ export const HomeChallenges = () => {
                 </Flex>
               </Flex>
             </Accordion.Panel>
-          </Accordion.Item>
-          <Text mt={40}> <strong>Niveles avanzados proximamente.....</strong> </Text>
+          </Accordion.Item> */}
+          <Text mt={40}>
+            {" "}
+            <strong>Niveles avanzados proximamente.....</strong>{" "}
+          </Text>
         </Accordion>
-        <OvaCharacter
-              message={'Sere tu apoyo en los desafios' }
-              side={'left'}
-
-            />
+        <OvaCharacter message={"Sere tu apoyo en los desafios"} side={"left"} />
       </div>
     </Container>
-
-
   );
 };

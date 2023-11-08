@@ -5,8 +5,8 @@ import { LessonsLayout } from '../layout';
 export const LessonsRouter = () => {
   return (
     <Routes>
-      <Route path='/' element={<LessonsLayout />}>
-        <Route path='/:id' element={<LessonPage />} />
+      <Route element={<LessonsLayout />}>
+        <Route path='*/:id' element={<LessonPage />} />
       </Route>
     </Routes>
   );
