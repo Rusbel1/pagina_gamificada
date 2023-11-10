@@ -12,6 +12,7 @@ import { axiosController } from '../helper/axiosController';
 export const AppRouter = () => {
   const setUser = userStore((state) => state.setUser)
   const [isloget, setloget] = useState(false)
+
   useEffect(() => {
     if (localStorage.getItem('token')) {
       setloget(true)
@@ -27,8 +28,8 @@ const getUser = () => {
   };
   axiosController.get('/usuariosByToken', headers)
     .then(response => {
-      console.log(response.data);
-      setUser(response.data)
+      const user = response.data[0]
+      setUser( user.uid,user.first_name, user.points_user)
     })
     .catch(error => {
       console.log(error);

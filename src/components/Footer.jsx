@@ -1,9 +1,6 @@
 import { Text, Container, ActionIcon, Group, rem, Avatar } from '@mantine/core';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram, IconAlien, IconBrandMantine } from '@tabler/icons-react';
-
 import classes from './Footer.styles.module.css';
-
-
 const data = [
   {
     title: 'About',

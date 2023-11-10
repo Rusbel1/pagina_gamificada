@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import {
   Button,
@@ -18,14 +19,11 @@ import useSound from "use-sound";
 import Confetti from "react-confetti";
 import ova from "../../assets/ova.png";
 import { OvaCharacter } from "../components";
-import { sampleLessons } from "../../sampleLesson";
-import { axiosController } from "../../helper/axiosController";
-import axios from "axios";
+import {axiosController} from "../../helper/axiosController";
 
 export const LessonPage = () => {
-  const [Lesson, setLesson] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [lessonContent, setLessonContent] = useState([]); 
+  const [section, setSection] = useState({});
+  const [lessonContentResult, setLessonContentResult] = useState([]);
   const navigate = useNavigate();
   const [playWinner] = useSound(winnerSfx);
   const [opened, { open, close }] = useDisclosure(false);
@@ -38,45 +36,18 @@ export const LessonPage = () => {
       token: token,
     },
   };
-
-  const [lessons, setLessons] = useState([]);
-
+  
   useEffect(() => {
-    // Realiza una solicitud al backend para obtener las lecciones
     axiosController
-      .get(`/lessonGetByIdSection/${uid}`, headers) // Reemplaza '/tu/endpoint/de/lecciones' con la URL de tu endpoint
+      .get(`/threeTablesByIdSection/${uid}`, headers)
       .then((response) => {
-        setLessons(response.data); // Almacena las lecciones en el estado
-        console.log(response.data);
+        setSection(response.data.section);
+        setLessonContentResult(response.data.lessonContentResult);
       })
       .catch((error) => {
-        console.error("Error al obtener las lecciones", error);
+        console.error("Error al obtener la sección y el contenido de la lección", error);
       });
-  }, []);
-
-  const getLessons = () => {
-    lessons.map((lesson, index) => {
-      axiosController
-        .get(`/lessonGetById/${lesson.uid}`, headers)
-        .then((response) => {
-          setLesson(response.data);
-          console.log("Este es el id de la lesson:",response.data.uid);
-        });
-        
-    }); 
-    
-  };
-  
-  const getLessonContent = () => {
-    axiosController.get(`/lesson_contentGetByIdLesson/${lessons.uid}`, headers).then((response) => {
-      console.log(response.data);
-    });
-  };
-
-  useEffect(() => {
-    getLessons();
-    /* getLessonContent(); */
-  }, []);
+  }, [uid]);
 
   const handleOnClickNext = () => {
     setPage((prevState) => prevState + 1);
@@ -85,76 +56,110 @@ export const LessonPage = () => {
   const handleOnClickBack = () => {
     setPage((prevState) => prevState - 1);
   };
-
-  useEffect(() => {
-    setSearchParams({ page: page });
-  }, [page]);
-
-  /*   console.log(sampleLessons[id].lessons); */
-
+  console.log('page:', page);
+  console.log(lessonContentResult[page])
+if (lessonContentResult.length === 0) {
+  return <div>pene</div>
+}
+const {lesson,lessonContent} = lessonContentResult[page];
+console.log(lessonContent)
+console.log(lesson)
   return (
     <>
-
-      hola
       <Container size="md" px="xs" my={64}>
         <Card shadow="sm" padding="lg" radius="md" withBorder>
-          {/* <Flex w='100%' h='100%' justify='center' direction='column'>
-            {lesson.map((lesson, index) => {
-              switch (lesson.type) {
-                case 'title':
-                  return (
-                    <Title key={uid + index} my={12}>
-                      {lesson.content}
-                    </Title>
-                  );
-                case 'paragraph':
-                  return (
-                    <Text key={uid + index} my={12} size='lg'>
-                      {lesson.content}
-                    </Text>
-                  );
-                case 'snippet':
-                  return (
-                    <Prism
-                      key={uid + index}
-                      my={12}
-                      language='javascript'
-                      withLineNumbers
-                    >
-                      {lesson.content}
-                    </Prism>
-                  );
-                case 'code_challenge':
-                  return (
-                    <CodeEditor
-                      key={uid + index}
-                      content={lesson.content}
-                      onCanCanjear={setCanCanjear}
-                    />
-                  );
-                default:
-                  break;
-              }
-            })}
-            <OvaCharacter
-              message={sampleLessons[uid].lessons[page].ovaMessage}
-              side={sampleLessons[uid].lessons[page].ovaSide}
-            />
-            <Flex justify='space-between' mt={32}>
+          <Flex w="100%" h="100%" justify="center" direction="column">
+                <React.Fragment>
+                  {lesson.type === "Teoric" && (
+                    <>  
+                      <OvaCharacter
+                        message={lesson.ovamessage}
+                        side={lesson.ovaside}
+                      />
+                      {lessonContent.map((content) => {
+                        switch (content.type) {
+                          case "title":
+                            return (
+                              <Title key={content.uid} my={12}>
+                                {content.content}
+                              </Title>
+                            );
+                          case "paragraph":
+                            return (
+                              <Text key={content.uid} my={12} size="lg">
+                                {content.content}
+                              </Text>
+                            );
+                          case "snippet":
+                            return (
+                              <Prism
+                                key={content.uid}
+                                my={12}
+                                language="javascript"
+                                withLineNumbers
+                              >
+                                {content.content}
+                              </Prism>
+                            );
+                          default:
+                            return null;
+                        }
+                      })}
+                    </>
+                  )}
+
+                  {lesson.type === "practical" && (
+                    <>
+                      <OvaCharacter
+                        message={lesson.ovamessage}
+                        side={lesson.ovaside}
+                      />
+                      {lessonContent.map((content) => {
+                        switch (content.type) {
+                          case "title":
+                            return (
+                              <Title key={content.uid} my={12}>
+                                {content.content}
+                              </Title>
+                            );
+                          case "paragraph":
+                            return (
+                              <Text key={content.uid} my={12} size="lg">
+                                {content.content}
+                              </Text>
+                            );
+                          case "code_challenge":
+                            return (
+                              <CodeEditor
+                                key={content.uid}
+                                content={content.content}
+                                onCanCanjear={setCanCanjear}
+                              />
+                            );
+                          // Agrega otros casos según sea necesario
+                          default:
+                            return null;
+                        }
+                      })}
+                    </>
+                  )}
+                </React.Fragment>
+                      
+            <Flex justify="space-between" mt={32}>
               {page > 0 && (
                 <Button
-                  size='md'
-                  variant='outline'
-                  color='red'
+                  size="md"
+                  variant="outline"
+                  color="red"
                   onClick={() => handleOnClickBack()}
                 >
                   Atras
                 </Button>
               )}
-              {page === sampleLessons[uid].lessons.length - 1 ? (
+              {page === lessonContentResult.length - 1 ? (
                 <Button
-                  size='md'
-                  color='green'
+                  size="md"
+                  color="green"
                   onClick={() => {
                     playWinner();
                     open();
@@ -165,60 +170,22 @@ export const LessonPage = () => {
                 </Button>
               ) : (
                 <Button
-                  size='md'
-                  color='green'
+                  size="md"
+                  color="green"
                   onClick={() => handleOnClickNext()}
-                  disabled={page >= sampleLessons[uid].lessons.length - 1}
+                  disabled={page >= lessonContentResult.length - 1}
                 >
                   Siguiente
                 </Button>
               )}
             </Flex>
-          </Flex> */}
-          
-          {Lesson.map((lesson, index) => {
-            switch (lesson.type) {
-              case "title":
-                return (
-                  <Title key={uid + index} my={12}>
-                    {lesson.content}
-                  </Title>
-                );
-              case "paragraph":
-                return (
-                  <Text key={uid + index} my={12} size="lg">
-                    {lesson.content}
-                  </Text>
-                );
-              case "snippet":
-                return (
-                  <Prism
-                    key={uid + index}
-                    my={12}
-                    language="javascript"
-                    withLineNumbers
-                  >
-                    {lesson.content}
-                  </Prism>
-                );
-              case "code_challenge":
-                return (
-                  <CodeEditor
-                    key={uid + index}
-                    content={lesson.content}
-                    onCanCanjear={setCanCanjear}
-                  />
-                );
-              default:
-                break;
-            }
-          })}
+          </Flex>
         </Card>
       </Container>
-      {/* <Modal
+      <Modal
         opened={opened}
         onClose={close}
-        title="Felicidades! desafio completado"
+        title="Felicidades! desafío completado"
       >
         <Image maw={240} mx="auto" radius="md" src={ova} alt="Random image" />
         <Flex justify="center" mt={14}>
@@ -232,12 +199,13 @@ export const LessonPage = () => {
             color="green"
             onClick={() => navigate("/")}
           >
-            Volver a los desafios
+            Volver a los desafíos
           </Button>
         </Flex>
       </Modal>
 
-      {opened && <Confetti gravity={0.3} />} */}
+      {opened && <Confetti gravity={0.3} />}
     </>
   );
 };
+
