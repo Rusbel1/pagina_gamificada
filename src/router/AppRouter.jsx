@@ -7,20 +7,20 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { userStore } from '../store/UserStore';
 import { axiosController } from '../helper/axiosController';
+import { LessonsRouter } from '../lessons/routes/LessonsRouter';
 
 
 export const AppRouter = () => {
   const setUser = userStore((state) => state.setUser)
   const [isloget, setloget] = useState(false)
-
+  const token = localStorage.getItem('token');
   useEffect(() => {
-    if (localStorage.getItem('token')) {
+    if (token) {
       setloget(true)
       getUser()
     }
   })
 const getUser = () => {
-  const token = localStorage.getItem('token');
   const headers = {
     headers: {
       token: token
@@ -40,7 +40,8 @@ const getUser = () => {
     <Routes>
       <Route element={<Layout />} >
         <Route path='/auth/*' element={<AuthRoutes />} />
-        {isloget && <Route path='/lesson/:uid' element={<LessonPage />} />}
+        {isloget && <Route path='/editprofile/:uid' element={<AuthRoutes />} />}
+        {isloget && <Route path='/lesson/:uid/*' element={<LessonsRouter />} />}
         {isloget && <Route path='/*' element={<ChallengesRoutes />} />}
         <Route path='*' element={<AuthRoutes />} />
       </Route>

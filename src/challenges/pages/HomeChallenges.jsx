@@ -8,17 +8,16 @@ import {
   Title,
   Anchor,
 } from "@mantine/core";
-import { IconCircleCheck, IconCircleDashed } from "@tabler/icons-react";
+import { IconCircleCheck } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import { OvaCharacter } from "../../lessons/components";
 import { axiosController } from "../../helper/axiosController";
 import { useEffect } from "react";
-import { useSetState } from "@mantine/hooks";
 import { useState } from "react";
 
 export const HomeChallenges = () => {
+  console.log("me renderizo")
   const [sections, setSections] = useState([]);
-
   const token = localStorage.getItem("token");
   const headers = {
     headers: {
@@ -28,7 +27,6 @@ export const HomeChallenges = () => {
   useEffect(() => {
     axiosController.get("/sectionGet", headers).then((response) => {
       setSections(response.data);
-      console.log(sections.uid);
     });
   }, []);
 

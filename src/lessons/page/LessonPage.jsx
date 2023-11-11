@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import {
   Button,
@@ -18,10 +17,11 @@ import winnerSfx from "../../assets/winner.mp3";
 import useSound from "use-sound";
 import Confetti from "react-confetti";
 import ova from "../../assets/ova.png";
-import { OvaCharacter } from "../components";
-import {axiosController} from "../../helper/axiosController";
+import { OvaCharacter } from "../components/OvaCharacter";
+import { axiosController } from "../../helper/axiosController";
 
 export const LessonPage = () => {
+  console.log("me renderizo");
   const [section, setSection] = useState({});
   const [lessonContentResult, setLessonContentResult] = useState([]);
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ export const LessonPage = () => {
       token: token,
     },
   };
-  
+
   useEffect(() => {
     axiosController
       .get(`/threeTablesByIdSection/${uid}`, headers)
@@ -45,9 +45,12 @@ export const LessonPage = () => {
         setLessonContentResult(response.data.lessonContentResult);
       })
       .catch((error) => {
-        console.error("Error al obtener la sección y el contenido de la lección", error);
+        console.error(
+          "Error al obtener la sección y el contenido de la lección",
+          error
+        );
       });
-  }, [uid]);
+  }, []);
 
   const handleOnClickNext = () => {
     setPage((prevState) => prevState + 1);
@@ -56,132 +59,95 @@ export const LessonPage = () => {
   const handleOnClickBack = () => {
     setPage((prevState) => prevState - 1);
   };
-  console.log('page:', page);
-  console.log(lessonContentResult[page])
-if (lessonContentResult.length === 0) {
-  return <div>pene</div>
-}
-const {lesson,lessonContent} = lessonContentResult[page];
-console.log(lessonContent)
-console.log(lesson)
-  return (
-    <>
-      <Container size="md" px="xs" my={64}>
-        <Card shadow="sm" padding="lg" radius="md" withBorder>
-          <Flex w="100%" h="100%" justify="center" direction="column">
-                <React.Fragment>
-                  {lesson.type === "Teoric" && (
-                    <>  
-                      <OvaCharacter
-                        message={lesson.ovamessage}
-                        side={lesson.ovaside}
-                      />
-                      {lessonContent.map((content) => {
-                        switch (content.type) {
-                          case "title":
-                            return (
-                              <Title key={content.uid} my={12}>
-                                {content.content}
-                              </Title>
-                            );
-                          case "paragraph":
-                            return (
-                              <Text key={content.uid} my={12} size="lg">
-                                {content.content}
-                              </Text>
-                            );
-                          case "snippet":
-                            return (
-                              <Prism
-                                key={content.uid}
-                                my={12}
-                                language="javascript"
-                                withLineNumbers
-                              >
-                                {content.content}
-                              </Prism>
-                            );
-                          default:
-                            return null;
-                        }
-                      })}
-                    </>
-                  )}
 
-                  {lesson.type === "practical" && (
-                    <>
-                      <OvaCharacter
-                        message={lesson.ovamessage}
-                        side={lesson.ovaside}
-                      />
-                      {lessonContent.map((content) => {
-                        switch (content.type) {
-                          case "title":
-                            return (
-                              <Title key={content.uid} my={12}>
-                                {content.content}
-                              </Title>
-                            );
-                          case "paragraph":
-                            return (
-                              <Text key={content.uid} my={12} size="lg">
-                                {content.content}
-                              </Text>
-                            );
-                          case "code_challenge":
-                            return (
-                              <CodeEditor
-                                key={content.uid}
-                                content={content.content}
-                                onCanCanjear={setCanCanjear}
-                              />
-                            );
-                          // Agrega otros casos según sea necesario
-                          default:
-                            return null;
-                        }
-                      })}
-                    </>
-                  )}
-                </React.Fragment>
-                      
-            <Flex justify="space-between" mt={32}>
-              {page > 0 && (
-                <Button
-                  size="md"
-                  variant="outline"
-                  color="red"
-                  onClick={() => handleOnClickBack()}
-                >
-                  Atras
-                </Button>
-              )}
-              {page === lessonContentResult.length - 1 ? (
-                <Button
-                  size="md"
-                  color="green"
-                  onClick={() => {
-                    playWinner();
-                    open();
-                  }}
-                  disabled={!canCanjear}
-                >
-                  Canjear recompensa
-                </Button>
-              ) : (
-                <Button
-                  size="md"
-                  color="green"
-                  onClick={() => handleOnClickNext()}
-                  disabled={page >= lessonContentResult.length - 1}
-                >
-                  Siguiente
-                </Button>
-              )}
-            </Flex>
-          </Flex>
-        </Card>
-      </Container>
+  if (lessonContentResult.length === 0) {
+    return <div>Error</div>;
+  }
+
+  const { lesson, lessonContent } = lessonContentResult[page];
+  console.log("lessoncontentResult", lessonContentResult);
+  console.log("lesson", lesson);
+  console.log("lessonContent", lessonContent);
+
+  return (
+    <Container size="md" px="xs" my={64}>
+      <Card shadow="sm" padding="lg" radius="md" withBorder>
+        <Flex w="100%" h="100%" justify="center" direction="column">
+          {lesson.type === "teoric" ? (
+            <>
+              <OvaCharacter message={lesson.ovamessage} side={lesson.ovaside} />
+              {lessonContent.map((content) => {
+                if (content.type === "title") {
+                  return <Title key={content.uid} my={12}>{content.content}</Title>;
+                } else if (content.type === "paragraph") {
+                  return <Text key={content.uid} my={12} size="lg">{content.content}</Text>;
+                } else if (content.type === "snippet") {
+                  return (
+                    <Prism key={content.uid} my={12} language="javascript" withLineNumbers>
+                      {content.content}
+                    </Prism>
+                  );
+                }
+                return null;
+              })}
+            </>
+          ) : lesson.type === "practical" ? (
+            <>
+              <OvaCharacter message={lesson.ovamessage} side={lesson.ovaside} />
+              {lessonContent.map((content) => {
+                if (content.type === "title") {
+                  return <Title key={content.uid} my={12}>{content.content}</Title>;
+                } else if (content.type === "paragraph") {
+                  return <Text key={content.uid} my={12} size="lg">{content.content}</Text>;
+                } else if (content.type === "code_challenge") {
+                  return (
+                    <CodeEditor
+                      key={content.uid}
+                      content={content.content}
+                      onCanCanjear={setCanCanjear}
+                    />
+                  );
+                }
+                return null;
+              })}
+            </>
+          ) : null}
+        </Flex>
+      </Card>
+      <Flex justify="space-between" mt={32}>
+        {page > 0 && (
+          <Button
+            size="md"
+            variant="outline"
+            color="red"
+            onClick={() => handleOnClickBack()}
+          >
+            Atras
+          </Button>
+        )}
+        {page === lessonContentResult.length - 1 ? (
+          <Button
+            size="md"
+            color="green"
+            onClick={() => {
+              playWinner();
+              open();
+            }}
+            disabled={!canCanjear}
+          >
+            Canjear recompensa
+          </Button>
+        ) : (
+          <Button
+            size="md"
+            color="green"
+            onClick={() => handleOnClickNext()}
+            disabled={page >= lessonContentResult.length - 1}
+          >
+            Siguiente
+          </Button>
+        )}
+      </Flex>
       <Modal
         opened={opened}
         onClose={close}
@@ -191,7 +157,6 @@ console.log(lesson)
         <Flex justify="center" mt={14}>
           <Text size="lg">Recibes 20 puntos más!</Text>
         </Flex>
-
         <Flex justify="center" mt={14}>
           <Button
             size="md"
@@ -203,9 +168,7 @@ console.log(lesson)
           </Button>
         </Flex>
       </Modal>
-
       {opened && <Confetti gravity={0.3} />}
-    </>
+    </Container>
   );
 };
-

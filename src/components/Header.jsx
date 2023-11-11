@@ -83,10 +83,14 @@ export function Header() {
   function logout() {
     // Eliminar el token de autenticación
     localStorage.removeItem("token");
-
     // Redirigir al usuario a la página de inicio de sesión
     window.location.href = "/auth/login";
   }
+
+  function userSettings() {
+    window.location.href = "/editprofile";
+  }
+
   const [isloget, setloget] = useState(false);
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -289,7 +293,8 @@ export function Header() {
 
                 <Menu.Label>Settings</Menu.Label>
                 <Menu.Item
-                  leftSection={
+                  onClick={userSettings}
+                  leftSection={    
                     <IconSettings
                       style={{ width: rem(16), height: rem(16) }}
                       stroke={1.5}
@@ -297,16 +302,6 @@ export function Header() {
                   }
                 >
                   Account settings
-                </Menu.Item>
-                <Menu.Item
-                  leftSection={
-                    <IconSwitchHorizontal
-                      style={{ width: rem(16), height: rem(16) }}
-                      stroke={1.5}
-                    />
-                  }
-                >
-                  Change account
                 </Menu.Item>
                 <Menu.Item
                   onClick={logout}
