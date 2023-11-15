@@ -67,10 +67,10 @@ export const LessonPage = () => {
   console.log(lesson, content);
   
   
-  return <>
+ /*  return <>
     pene
   </>
-
+ */
   return (
     <Container size="md" px="xs" my={64}>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
