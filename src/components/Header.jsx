@@ -206,7 +206,7 @@ export function Header() {
                   <Button
                     size="md"
                     variant="outline"
-                    color="green"
+                    style={{ backgroundColor: "darkslategray" ,color:'white',borderRadius: "20px",cursor: "pointer",boxShadow: "10px"}}
                     onClick={() => window.location.reload("/")}
                   >
                     Pagina de inicio
@@ -243,7 +243,7 @@ export function Header() {
               ml={5}
               style={{ padding: 20, borderRadius: 40, color: "white" }}
             >
-              Points {user.points_user}
+              Puntos {user.points_user}
             </Text>
 
             <Menu
@@ -279,19 +279,7 @@ export function Header() {
                 </UnstyledButton>
               </Menu.Target>
               <Menu.Dropdown>
-                <Menu.Item
-                  leftSection={
-                    <IconMessage
-                      style={{ width: rem(16), height: rem(16) }}
-                      color={theme.colors.blue[6]}
-                      stroke={1.5}
-                    />
-                  }
-                >
-                  Challenges
-                </Menu.Item>
-
-                <Menu.Label>Settings</Menu.Label>
+                <Menu.Label>Configuraciones</Menu.Label>
                 <Menu.Item
                   onClick={userSettings}
                   leftSection={    
@@ -301,7 +289,7 @@ export function Header() {
                     />
                   }
                 >
-                  Account settings
+                  Configuraciones de cuenta
                 </Menu.Item>
                 <Menu.Item
                   onClick={logout}
@@ -312,7 +300,7 @@ export function Header() {
                     />
                   }
                 >
-                  Logout
+                  Cerrar sesion
                 </Menu.Item>
 
                 <Menu.Divider />
@@ -331,13 +319,13 @@ export function Header() {
               style={{ margin: "5px", color: "white" }}
               onClick={handleLogin}
             >
-              Log In
+              Iniciar sesion
             </UnstyledButton>
             <UnstyledButton
               style={{ margin: "5px", color: "white" }}
               onClick={handleRegister}
             >
-              Register
+              Registrate
             </UnstyledButton>
           </Container>
         )}

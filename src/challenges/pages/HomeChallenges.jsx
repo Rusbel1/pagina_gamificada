@@ -88,7 +88,7 @@ export const HomeChallenges = () => {
           ))}
         
         </Accordion>
-        <OvaCharacter message={"Sere tu apoyo en los desafios"} side={"left"} />
+        <OvaCharacter message={"Sere tu apoyo en los desafios"} side={"right"} />
       </div>
     </Container>
   );

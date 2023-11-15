@@ -42,17 +42,7 @@ export const LessonPage = () => {
       .get(`/threeTablesByIdSection/${uid}`, headers)
       .then((response) => {
         setSection(response.data.section);
-        setLessonContentResult(
-          response.data.lessonContentResult.sort((a, b) => {
-            if (a.lesson.type === "teoric" && b.lesson.type !== "teoric") {
-              return -1;
-            }
-            if (a.lesson.type !== "teoric" && b.lesson.type === "teoric") {
-              return 1;
-            }
-            return a.order - b.order;
-          })
-        );
+        setLessonContentResult(response.data.lessonContentResult);
       })
       .catch((error) => {
         console.error(
@@ -73,11 +63,13 @@ export const LessonPage = () => {
   if (lessonContentResult.length === 0) {
     return <div>Error</div>;
   }
-
-  const { lesson, lessonContent } = lessonContentResult[page];
-  console.log("lessoncontentResult", lessonContentResult);
-  console.log("lesson", lesson);
-  console.log("lessonContent", lessonContent);
+  const {lesson,content} = lessonContentResult[page][0];
+  console.log(lesson, content);
+  
+  
+  return <>
+    pene
+  </>
 
   return (
     <Container size="md" px="xs" my={64}>

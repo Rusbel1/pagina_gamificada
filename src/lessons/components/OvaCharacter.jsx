@@ -7,16 +7,16 @@ export const OvaCharacter = ({ side = 'right', message = '' }) => {
   return (
     <Box
       pos={'fixed'}
-      top='66%'
+      top='65%'
       bottom='50%'
       sx={{
         ...ovaSide,
       }}
     >
-      <Card shadow='xl' radius='lg' withBorder mb={16}>
+      <Card shadow='lg' radius='lg' withBorder mb={10}>
         <Text color='darkslategray' size='xs'><strong>{message}</strong></Text>
       </Card>
-      <Image maw={200} mx='auto' radius='md' src={ova} alt='Random image' />
+      <Image maw={200} mx='sx' radius='xs' src={ova} alt='Random image' />
     </Box>
   );
 };

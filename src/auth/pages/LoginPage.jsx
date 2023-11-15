@@ -19,15 +19,6 @@ import { useState } from 'react';
 
 
 export function LoginPage() {
-    /* function logout() {
-        // Eliminar el token de autenticación
-        localStorage.removeItem('token');
-      
-        // Redirigir al usuario a la página de inicio de sesión
-        window.location.href = '/http://localhost:4000/login'; // Reemplaza 'login.html' con la URL de tu página de inicio de sesión
-      }
-       */
-
     const [formData, setFormData] = useState({
         mail: '',
         password: '',
@@ -46,14 +37,11 @@ export function LoginPage() {
         console.log(formData)
         axios.post('http://localhost:4000/login', formData)
             .then(response => {
-                // Maneja la respuesta del backend aquí (éxito o error)
                 console.log('Ingreso exitoso', response.data);
                 localStorage.setItem('token', response.data.token)
                 window.location.href = '/'; 
-                // Puedes redirigir al usuario a la página de inicio de sesión o mostrar un mensaje de confirmación
             })
             .catch(error => {
-                // Maneja los errores aquí y muestra un mensaje de error al usuario
                 console.error('Error en el registro', error);
             });
     };
@@ -66,24 +54,24 @@ export function LoginPage() {
 
                 </Title>
                 <Text size="sm" ta="center" mt={5} color='darkslategray'>
-                    Login to your account
+                    Inicia sesion con tu cuenta
                 </Text>
                 <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-                    <TextInput name='mail' label="Email"  placeholder="you@mantine.dev" required onChange={handleInputChange}/>
-                    <PasswordInput  name='password' label="Password" placeholder="Your password" required mt="md" onChange={handleInputChange}/>
+                    <TextInput name='mail' label="Correo electronido"  placeholder="you@mantine.dev" required onChange={handleInputChange}/>
+                    <PasswordInput  name='password' label="Contraseña" placeholder="Your password" required mt="md" onChange={handleInputChange}/>
                     <Group justify="space-between" mt="lg">
-                        <Checkbox label="Remember me" />
+                        <Checkbox label="Recuerdame" />
                         <Text c="dimmed" size="sm" ta="center" mt={5}>
-                            Do not have an account yet?{''}
+                           No tienes una cuenta todavia? {''}
                             <Link to="/auth/register">
                             <Anchor size="sm" component="button" style={{color:'darkslategray'}}>
-                                Create account
+                                Crear una cuenta
                             </Anchor>
                             </Link>
                         </Text>
                     </Group>
                     <Button fullWidth mt="xl" onClick={handleRegister} style={{backgroundColor:'darkslategray'}}>
-                        Sign in
+                        Iniciar sesion
                     </Button>
                 </Paper>
         </Container>
