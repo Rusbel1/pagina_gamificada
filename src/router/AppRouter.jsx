@@ -40,7 +40,7 @@ const getUser = () => {
     <Routes>
       <Route element={<Layout />} >
         <Route path='/auth/*' element={<AuthRoutes />} />
-        {isloget && <Route path='/editprofile/*' element={<EditProfile />} />}
+        {isloget && <Route path='/editprofile' element={<EditProfile />} />}
         {isloget && <Route path='/lesson/:uid/*' element={<LessonsRouter />} />}
         {isloget && <Route path='/*' element={<ChallengesRoutes />} />}
         <Route path='*' element={<AuthRoutes />} />

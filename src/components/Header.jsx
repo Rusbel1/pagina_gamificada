@@ -7,7 +7,7 @@ import classes from "./Header.styles.module.css";
 import Sticky from "react-stickynode";
 import { useDisclosure } from "@mantine/hooks";
 import { Wheel } from "react-custom-roulette";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { userStore } from "../store/UserStore";
 import { axiosController } from "../helper/axiosController";
@@ -99,11 +99,11 @@ export function Header() {
   });
 
   const handleLogin = () => {
-    window.location.href = "/auth/login";
+    navigation ("/auth/login");
   };
-
+  const navigation = useNavigate();
   const handleRegister = () => {
-    window.location.href = "/auth/register";
+    navigation ("/auth/register");
   };
   const user = userStore((state) => state);
   const setUser = userStore((state) => state.setUser);
