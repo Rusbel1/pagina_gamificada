@@ -85,7 +85,7 @@ export function Header() {
     // Eliminar el token de autenticación
     localStorage.removeItem("token");
     // Redirigir al usuario a la página de inicio de sesión
-    navigation("/") ;
+    window.reload();
   }
 
   function userSettings() {
