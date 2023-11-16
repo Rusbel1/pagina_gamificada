@@ -18,12 +18,10 @@ export const CodeEditor = ({ content, onCanCanjear }) => {
   function checkSyntax(code) {
     try {
       parseScript(code);
-      console.log("No syntax errors found.");
       setError();
       onCanCanjear(true);
     } catch (error) {
       setError(error);
-      console.error("Syntax error:", error);
       onCanCanjear(false);
     }
   }

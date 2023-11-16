@@ -19,9 +19,10 @@ import Confetti from "react-confetti";
 import ova from "../../assets/ova.png";
 import { OvaCharacter } from "../components";
 import { axiosController } from "../../helper/axiosController";
+import { Loader } from "@mantine/core";
+import { userStore } from "../../store/UserStore";
 
 export const LessonPage = () => {
-  console.log("me renderizo");
   const [section, setSection] = useState({});
   const [lessonContentResult, setLessonContentResult] = useState([]);
   const navigate = useNavigate();
@@ -60,22 +61,32 @@ export const LessonPage = () => {
     setPage((prevState) => prevState - 1);
   };
 
-  if (lessonContentResult.length === 0) {
-    return <div>Error</div>;
-  }
-  const {lesson,content} = lessonContentResult[page][0];
-  console.log(lesson, content);
-  
-  
-  return <>
-    pene
-  </>
+  const user = userStore((state) => state);
+  const setUser = userStore((state) => state.setUser);
 
+  const onPointReward = () => {
+      axiosController
+      .put(`/usuariosPut/${user.id}`, { points_user: section.reward_points + user.points_user })
+      .then((response) => {
+        setUser(user.id, user.first_name, user.points_user + section.reward_points);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    };
+
+  if (lessonContentResult.length === 0) {
+    return <Loader size={50}>Error</Loader>;
+  }
+  
+  const { lesson, content } = lessonContentResult[0][page];
   return (
+    
     <Container size="md" px="xs" my={64}>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
         <Flex w="100%" h="100%" justify="center" direction="column">
-          {lessonContent.map((content) => {
+          {content.map((content) => {
             switch (content.type) {
               case "title":
                 return (
@@ -125,10 +136,10 @@ export const LessonPage = () => {
             Atras
           </Button>
         )}
-        {page === lessonContentResult.length - 1 ? (
+        {page === lessonContentResult[0].length - 1 ? (
           <Button
             size="md"
-            color="green"
+            style={{ backgroundColor: "darkslategray",color:'white'}}
             onClick={() => {
               playWinner();
               open();
@@ -142,7 +153,7 @@ export const LessonPage = () => {
             size="md"
             color="green"
             onClick={() => handleOnClickNext()}
-            disabled={page >= lessonContentResult.length - 1}
+            disabled={page >= lessonContentResult[0].length - 1}
           >
             Siguiente
           </Button>
@@ -155,16 +166,18 @@ export const LessonPage = () => {
       >
         <Image maw={240} mx="auto" radius="md" src={ova} alt="Random image" />
         <Flex justify="center" mt={14}>
-          <Text size="lg">Recibes 20 puntos más!</Text>
+          <Text size="lg">Ganaste!! {section.reward_points} puntos</Text>
         </Flex>
         <Flex justify="center" mt={14}>
           <Button
+            style={{ backgroundColor: "darkslategray",color:'white'}}
             size="md"
             variant="outline"
-            color="green"
-            onClick={() => navigate("/")}
+            
+           /*  onClick={() => navigate("/")} */
+            onClick={()=>onPointReward()}
           >
-            Volver a los desafíos
+            Reclamar puntos
           </Button>
         </Flex>
       </Modal>

@@ -118,8 +118,18 @@ export function Header() {
         console.log(error);
       });
   };
+  // make this to work within a minute and not with days
+
+
+  const lastspin = localStorage.getItem("lastspin");
+  const today = new Date();
+  const lastspindate = new Date(lastspin);
+/*   const canspin = lastspindate.getDate() !== today.getDate(); */
+  const timedifference = today.getTime() - lastspindate.getTime();
+  const canspin = timedifference > 60000;
+  
   return (
-    <Sticky innerZ={1} top={0} bottomBoundary={1200}>
+    <Sticky innerZ={99} top={0} bottomBoundary={1200}>
       <div className={classes.header}>
         <Container className={classes.mainSection} size="md">
           {isloget ? (
@@ -179,11 +189,13 @@ export function Header() {
                 onStopSpinning={() => {
                   sendScore(data[prizeNumber].value);
                   setMustSpin(false);
+                  localStorage.setItem("lastspin", today);
                   openReward();
                 }}
               ></Wheel>
-              <button
-                style={{
+              <Button
+                disabled={!canspin}
+                /* style={{
                   marginTop: "10px",
                   cursor: "pointer",
                   boxShadow: "10px",
@@ -191,12 +203,12 @@ export function Header() {
                   color: "white",
                   width: "7.5rem",
                   height: "2.3rem",
-                  borderRadius: "20px",
-                }}
+                  borderRadius: "20px"
+                }} */
                 onClick={handleSpinClick}
               >
                 Girar
-              </button>
+              </Button>
               <Modal opened={reward} onClose={closeReward} title="Ganaste!!!">
                 <Flex justify="center" mt={14}>
                   <Text size="lg">Recibes {data[prizeNumber]?.value}</Text>

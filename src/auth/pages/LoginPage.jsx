@@ -34,10 +34,8 @@ export function LoginPage() {
     const navigate = useNavigate();
 
     const handleRegister = () => {
-        console.log(formData)
         axios.post('http://localhost:4000/login', formData)
             .then(response => {
-                console.log('Ingreso exitoso', response.data);
                 localStorage.setItem('token', response.data.token)
                 window.location.href = '/'; 
             })

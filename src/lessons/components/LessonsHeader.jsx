@@ -13,8 +13,8 @@ export const LessonsHeader = () => {
     <Container pt={18}>
       <Flex justify='space-between' align='center'>
         <Flex align='center'>
-          <Avatar size='lg'>RS</Avatar>
-          <Text ml={6}>20 puntos</Text>
+          <Avatar size='lg'></Avatar>
+          <Text ml={6}></Text>
         </Flex>
         <Button variant='subtle' leftIcon={<IconX />} onClick={onCloseLesson}>
           Cerrar desafio

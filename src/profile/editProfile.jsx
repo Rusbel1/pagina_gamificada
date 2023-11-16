@@ -10,6 +10,7 @@ import {
 } from "@mantine/core";
 import { axiosController } from "../helper/axiosController";
 import { userStore } from "../store/UserStore";
+import { useEffect } from "react";
 
 export const EditProfile = () => {
   const user = userStore((state) => state);
@@ -17,7 +18,7 @@ export const EditProfile = () => {
   const [formData, setFormData] = useState({
     first_name: "",
     second_name: "",
-    last_name: "",
+    first_lastname: "",
     second_lastname: "",
   });
   const [loading, setLoading] = useState(false);
@@ -35,18 +36,33 @@ export const EditProfile = () => {
     setLoading(true);
     setError(null);
     setSuccess(false);
-
     axiosController
-      .put(`/usuariosPut/${uid}`, formData)
+      .put(`/usuariosPut/${user.id}`, formData)
       .then((response) => {
         setLoading(false);
         setSuccess(true);
+        setUser(
+          user.id,
+          formData.first_name,
+          user.points_user
+        );
       })
       .catch((err) => {
+        console.log(err);
         setLoading(false);
         setError("Hubo un error al actualizar el perfil");
       });
   };
+
+  const getuser = () => {
+    axiosController.get(`/usuariosGet/${user.id}`).then((response) => {
+      setFormData({first_name: response.data[0].first_name,first_lastname: response.data[0].first_lastname,second_name:response.data[0].second_name,second_lastname:response.data[0].second_lastname});
+    }
+    );
+  }
+  useEffect(() => {
+    getuser()
+  }, []);
 
   return (
     <Container
@@ -82,28 +98,28 @@ export const EditProfile = () => {
           label="Primer Nombre"
           placeholder="Primer Nombre"
           value={formData.first_name}
-          onChange={(value) => handleChange("first_name", value)}
+          onChange={(e) => handleChange("first_name", e.target.value)}
           style={{ marginTop: "16px" }}
         />
         <TextInput
           label="Segundo Nombre"
           placeholder="Segundo Nombre"
           value={formData.second_name}
-          onChange={(value) => handleChange("second_name", value)}
+          onChange={(e) => handleChange("second_name",e.target.value)}
           style={{ marginTop: "16px" }}
         />
         <TextInput
           label="Primer Apellido"
           placeholder="Primer Apellido"
-          value={formData.last_name}
-          onChange={(value) => handleChange("last_name", value)}
+          value={formData.first_lastname}
+          onChange={(e) => handleChange("first_lastname", e.target.value)}
           style={{ marginTop: "16px" }}
         />
         <TextInput
           label="Segundo Apellido"
           placeholder="Segundo Apellido"
           value={formData.second_lastname}
-          onChange={(value) => handleChange("second_lastname", value)}
+          onChange={(e) => handleChange("second_lastname", e.target.value)}
           style={{ marginTop: "16px" }}
         />
         <Button

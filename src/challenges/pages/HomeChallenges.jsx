@@ -7,16 +7,20 @@ import {
   ThemeIcon,
   Title,
   Anchor,
+  Button,
 } from "@mantine/core";
 import { IconCircleCheck } from "@tabler/icons-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { OvaCharacter } from "../../lessons/components";
 import { axiosController } from "../../helper/axiosController";
 import { useEffect } from "react";
 import { useState } from "react";
+import { userStore } from "../../store/UserStore";
+
 
 export const HomeChallenges = () => {
-  console.log("me renderizo")
+  const user = userStore((state) => state);
+  const setUser = userStore((state) => state.setUser);
   const [sections, setSections] = useState([]);
   const token = localStorage.getItem("token");
   const headers = {
@@ -30,6 +34,10 @@ export const HomeChallenges = () => {
     });
   }, []);
 
+  const navigate = useNavigate();
+  const Handleonclicksection = (uid) => {
+    navigate(`/lesson/${uid}`);
+  }
   const sectionsByLevel = {};
 
   sections.forEach((section) => {
@@ -38,6 +46,7 @@ export const HomeChallenges = () => {
     }
     sectionsByLevel[section.level].push(section);
   });
+
   return (
     <Container
       size="md"
@@ -66,9 +75,9 @@ export const HomeChallenges = () => {
           radius="xs"
         >
           {Object.entries(sectionsByLevel).map(([level, sectionsForLevel]) => (
-            <Accordion key={level}>
-              <Accordion.Item value={level}>
-                <Accordion.Control><strong>{`Dificultad: ${level} `}</strong></Accordion.Control>
+            <Accordion key={level} disableChevronRotation={false}>
+              <Accordion.Item value={level} >
+                <Accordion.Control ><strong>{`Dificultad: ${level} `}</strong></Accordion.Control>
                 <Accordion.Panel>
                   {sectionsForLevel.map((section, index) => (
                     <Flex key={index} p={4}>
@@ -76,9 +85,9 @@ export const HomeChallenges = () => {
                         <IconCircleCheck size="1rem" />
                       </ThemeIcon>
                       <Flex justify="space-between" align="center" w="100%">
-                        <Anchor component={Link} to={`/lesson/${section.uid}`}>
+                        <Button disabled={section.points_value>user.points_user} variant="subtle" onClick={()=>Handleonclicksection(section.uid)}>
                           {section.title}
-                        </Anchor>
+                        </Button>
                       </Flex>
                     </Flex>
                   ))}
