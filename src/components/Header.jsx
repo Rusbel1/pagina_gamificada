@@ -65,6 +65,7 @@ const data = [
 ];
 
 export function Header() {
+  const navigation = useNavigate();
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState({});
   const [reward, { open: openReward, close: closeReward }] =
@@ -84,11 +85,11 @@ export function Header() {
     // Eliminar el token de autenticación
     localStorage.removeItem("token");
     // Redirigir al usuario a la página de inicio de sesión
-    window.location.href = "/";
+    navigation("/") ;
   }
 
   function userSettings() {
-    window.location.href = "/editprofile";
+    navigation("/editprofile");
   }
 
   const [isloget, setloget] = useState(false);
@@ -101,7 +102,7 @@ export function Header() {
   const handleLogin = () => {
     navigation ("/auth/login");
   };
-  const navigation = useNavigate();
+  
   const handleRegister = () => {
     navigation ("/auth/register");
   };
