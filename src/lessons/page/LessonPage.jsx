@@ -81,6 +81,7 @@ export const LessonPage = () => {
   }
   
   const { lesson, content } = lessonContentResult[0][page];
+  console.log(lesson, content);
   return (
     
     <Container size="md" px="xs" my={64}>
@@ -181,6 +182,7 @@ export const LessonPage = () => {
           </Button>
         </Flex>
       </Modal>
+      <OvaCharacter message={lesson.ovamessage} side={lesson.ovaside}  ></OvaCharacter>
       {opened && <Confetti gravity={0.3} />}
     </Container>
   );
