@@ -15,6 +15,7 @@ import background from '../../assets/back_color.png'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
+import { axiosController } from '../../helper/axiosController';
 
 
 
@@ -34,7 +35,7 @@ export function LoginPage() {
     const navigate = useNavigate();
 
     const handleRegister = () => {
-        axios.post('http://localhost:4000/login', formData)
+        axiosController.post('/login', formData)
             .then(response => {
                 localStorage.setItem('token', response.data.token)
                 window.location.href = '/'; 
