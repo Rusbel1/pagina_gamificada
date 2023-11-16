@@ -65,25 +65,34 @@ export const LessonPage = () => {
   const setUser = userStore((state) => state.setUser);
 
   const onPointReward = () => {
-      axiosController
-      .put(`/usuariosPut/${user.id}`, { points_user: section.reward_points + user.points_user })
+    axiosController
+      .put(`/usuariosPut/${user.id}`, {
+        points_user: section.reward_points + user.points_user,
+      })
       .then((response) => {
-        setUser(user.id, user.first_name, user.points_user + section.reward_points);
+        setUser(
+          user.id,
+          user.first_name,
+          user.points_user + section.reward_points
+        );
         navigate("/");
       })
       .catch((error) => {
         console.log(error);
       });
-    };
+  };
 
   if (lessonContentResult.length === 0) {
-    return <Loader size={50}>Error</Loader>;
+    return (
+      <div style={{ justifyContent:'center',alignItems:'center',position: 'absolute',top: '50%',left: '50%'}}>
+        <Loader size={50}>Error</Loader>
+      </div>
+    );
   }
-  
+
   const { lesson, content } = lessonContentResult[0][page];
   console.log(lesson, content);
   return (
-    
     <Container size="md" px="xs" my={64}>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
         <Flex w="100%" h="100%" justify="center" direction="column">
@@ -105,7 +114,7 @@ export const LessonPage = () => {
                 return (
                   <Prism
                     key={content.uid}
-                    my={12}
+                    my={13}
                     language="javascript"
                     withLineNumbers
                   >
@@ -140,7 +149,7 @@ export const LessonPage = () => {
         {page === lessonContentResult[0].length - 1 ? (
           <Button
             size="md"
-            style={{ backgroundColor: "darkslategray",color:'white'}}
+            style={{ backgroundColor: "darkslategray", color: "white" }}
             onClick={() => {
               playWinner();
               open();
@@ -171,18 +180,20 @@ export const LessonPage = () => {
         </Flex>
         <Flex justify="center" mt={14}>
           <Button
-            style={{ backgroundColor: "darkslategray",color:'white'}}
+            style={{ backgroundColor: "darkslategray", color: "white" }}
             size="md"
             variant="outline"
-            
-           /*  onClick={() => navigate("/")} */
-            onClick={()=>onPointReward()}
+            /*  onClick={() => navigate("/")} */
+            onClick={() => onPointReward()}
           >
             Reclamar puntos
           </Button>
         </Flex>
       </Modal>
-      <OvaCharacter message={lesson.ovamessage} side={lesson.ovaside}  ></OvaCharacter>
+      <OvaCharacter
+        message={lesson.ovamessage}
+        side={lesson.ovaside}
+      ></OvaCharacter>
       {opened && <Confetti gravity={0.3} />}
     </Container>
   );
