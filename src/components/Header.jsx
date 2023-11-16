@@ -234,7 +234,6 @@ export function Header() {
           <Button
             onClick={open}
             style={{
-              marginTop: "10px",
               cursor: "pointer",
               boxShadow: "20px",
               backgroundColor: "darkslategray",

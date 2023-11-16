@@ -41,6 +41,7 @@ export function LoginPage() {
                 window.location.href = '/'; 
             })
             .catch(error => {
+                alert("Usuario o contraseña incorrectos")
                 console.error('Error en el registro', error);
             });
     };
