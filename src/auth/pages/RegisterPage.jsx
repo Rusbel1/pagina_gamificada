@@ -50,7 +50,6 @@ export function RegisterPage() {
 
         axiosController.post('/usuariosPost', formData, headers)
             .then(response => {
-               
                 console.log('Registro exitoso', response.data);
                 onlogin()
             })

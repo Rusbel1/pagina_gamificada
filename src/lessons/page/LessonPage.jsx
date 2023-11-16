@@ -91,7 +91,6 @@ export const LessonPage = () => {
   }
 
   const { lesson, content } = lessonContentResult[0][page];
-  console.log(lesson, content);
   return (
     <Container size="md" px="xs" my={64}>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
