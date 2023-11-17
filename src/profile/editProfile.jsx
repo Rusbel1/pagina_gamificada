@@ -55,12 +55,18 @@ export const EditProfile = () => {
   };
 
   const getuser = () => {
-    axiosController.get(`/usuariosGet/${user.id}`).then((response) => {
-/*       setFormData({first_name: response.data[0].first_name,first_lastname: response.data[0].first_lastname,second_name:response.data[0].second_name,second_lastname:response.data[0].second_lastname}); */
-      setFormData(response.data[0]);
-}
-    );
-  }
+    axiosController.get(`/usuariosGetById/${user.id}`).then((response) => {
+      const userData = response.data;
+  
+      setFormData({
+        first_name: userData.first_name || "",
+        second_name: userData.second_name || "",
+        first_lastname: userData.first_lastname || "",
+        second_lastname: userData.second_lastname || "",
+      });
+    });
+  };
+  
   useEffect(() => {
     getuser()
   }, []);
