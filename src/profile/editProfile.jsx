@@ -57,7 +57,6 @@ export const EditProfile = () => {
   const getuser = () => {
     axiosController.get(`/usuariosGetById/${user.id}`).then((response) => {
       const userData = response.data;
-  
       setFormData({
         first_name: userData.first_name || "",
         second_name: userData.second_name || "",
